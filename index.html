@@ -1,1 +1,371 @@
-<!DOCTYPE html><html><head><title>Arjun Yadav</title></head><body><h1>ZeroPath & ClearEMI Developer</h1><p><a href="app-ads.txt">app-ads.txt</a></p></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arjun Yadav — Mobile App Developer & Software Engineer</title>
+    <meta name="description" content="Official developer portfolio of Arjun Yadav. Creator of ZeroPath, Auto Video Splitter, and GSTWali.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg: #090d16;
+            --surface: #111827;
+            --surface-card: #162032;
+            --border: #1f293d;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-green: #10b981;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 32px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+        .logo {
+            font-weight: 800;
+            font-size: 20px;
+            letter-spacing: -0.5px;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--primary);
+        }
+        nav { display: flex; gap: 20px; align-items: center; }
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: #fff; }
+
+        /* Hero */
+        .hero {
+            padding: 72px 0 48px;
+            text-align: center;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(37, 99, 235, 0.12);
+            color: #60a5fa;
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            padding: 6px 16px;
+            border-radius: 9999px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        .pulse {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-green);
+        }
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 54px);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+            background: linear-gradient(180deg, #ffffff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 640px;
+            margin: 0 auto 36px;
+        }
+
+        /* Apps Grid */
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin: 48px 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .app-card {
+            background: var(--surface-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .app-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(37, 99, 235, 0.5);
+            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+        .app-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .app-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+        }
+        .app-title h3 {
+            font-size: 19px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+        .app-category {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+        .app-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        .app-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-top: auto;
+        }
+        .btn-play {
+            background: var(--primary);
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+        .btn-play:hover { background: var(--primary-hover); }
+        .btn-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .btn-link:hover { color: #fff; }
+
+        /* Trust / Info Bar */
+        .info-bar {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px 32px;
+            margin: 64px 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .info-item { display: flex; align-items: center; gap: 12px; }
+        .info-item span { font-size: 14px; color: var(--text-muted); }
+        .info-item strong { color: #fff; font-weight: 600; }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+            margin-top: 40px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        footer a { color: #60a5fa; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Top Nav -->
+        <header>
+            <a href="/" class="logo">
+                <span class="logo-dot"></span>
+                Arjun Yadav
+            </a>
+            <nav>
+                <a href="#apps">Apps</a>
+                <a href="/privacy/">Privacy Policies</a>
+                <a href="/app-ads.txt">app-ads.txt</a>
+                <a href="mailto:arjunyadav.ps@gmail.com">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-badge">
+                <span class="pulse"></span>
+                Google Play Verified Android Developer
+            </div>
+            <h1>Crafting Fast, Private & High-Impact Android Apps</h1>
+            <p>Passionate developer creating offline-first personal finance utilities, creator tools, and commerce solutions with modern Material Design.</p>
+        </section>
+
+        <!-- Apps Section -->
+        <div class="section-title" id="apps">
+            <h2>Featured Applications</h2>
+        </div>
+
+        <div class="apps-grid">
+            <!-- App 1: ZeroPath -->
+            <div class="app-card">
+                <div>
+                    <div class="app-header">
+                        <div class="app-icon">📊</div>
+                        <div class="app-title">
+                            <h3>ZeroPath: Loan & EMI Tracker</h3>
+                            <span class="app-category">Personal Finance • Top 1% Design</span>
+                        </div>
+                    </div>
+                    <p class="app-desc">Track all your loans, view detailed amortization schedules, compute interest savings with extra payments, and simulate debt payoff freedom with zero cloud leaks.</p>
+                </div>
+                <div class="app-actions">
+                    <a href="https://play.google.com/store/apps/details?id=com.arjunyadav.zeropath" target="_blank" class="btn-play">
+                        Get on Google Play ↗
+                    </a>
+                    <a href="/privacy/zeropath.html" class="btn-link">Privacy Policy</a>
+                </div>
+            </div>
+
+            <!-- App 2: Auto Video Splitter -->
+            <div class="app-card">
+                <div>
+                    <div class="app-header">
+                        <div class="app-icon">✂️</div>
+                        <div class="app-title">
+                            <h3>Auto Video Splitter for Status</h3>
+                            <span class="app-category">Video Tools • 100% Offline</span>
+                        </div>
+                    </div>
+                    <p class="app-desc">Quickly cut and split long videos into seamless 30-second clips for WhatsApp status, Instagram stories, and reels without quality loss.</p>
+                </div>
+                <div class="app-actions">
+                    <a href="/privacy/video-splitter.html" class="btn-link">Privacy Policy</a>
+                </div>
+            </div>
+
+            <!-- App 3: GSTWali -->
+            <div class="app-card">
+                <div>
+                    <div class="app-header">
+                        <div class="app-icon">⚡</div>
+                        <div class="app-title">
+                            <h3>GSTWali Web Studio</h3>
+                            <span class="app-category">Fintech & Tax Automation</span>
+                        </div>
+                    </div>
+                    <p class="app-desc">Ultra-fast GSTR-1 JSON Generator for eCommerce sellers across Meesho, Flipkart, Amazon, and Myntra. Convert messy spreadsheets in seconds.</p>
+                </div>
+                <div class="app-actions">
+                    <a href="https://gstwali.in/" target="_blank" class="btn-play">
+                        Open Studio ↗
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trust & AdMob Information Bar -->
+        <div class="info-bar">
+            <div class="info-item">
+                <span style="font-size: 20px;">🛡️</span>
+                <div>
+                    <strong>Developer Contact</strong><br>
+                    <span>arjunyadav.ps@gmail.com</span>
+                </div>
+            </div>
+            <div class="info-item">
+                <span style="font-size: 20px;">📜</span>
+                <div>
+                    <strong>Digital Sellers Info</strong><br>
+                    <span><a href="/app-ads.txt" style="color: #60a5fa; text-decoration: none;">View Verified app-ads.txt</a></span>
+                </div>
+            </div>
+            <div class="info-item">
+                <span style="font-size: 20px;">🔒</span>
+                <div>
+                    <strong>Privacy Compliance</strong><br>
+                    <span><a href="/privacy/" style="color: #60a5fa; text-decoration: none;">Privacy Center Directory</a></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <a href="/privacy/zeropath.html">ZeroPath Privacy</a>
+                <a href="/privacy/video-splitter.html">Video Splitter Privacy</a>
+                <a href="/app-ads.txt">app-ads.txt</a>
+                <a href="mailto:arjunyadav.ps@gmail.com">Support</a>
+            </div>
+            <p>&copy; 2026 Arjun Yadav. All rights reserved. Registered Developer for Google Play & AdMob.</p>
+        </footer>
+    </div>
+</body>
+</html>
