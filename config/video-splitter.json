@@ -1,0 +1,25 @@
+{
+  "app_id": "com.splitvideoforwhatsapp",
+  "app_name": "Auto Video Splitter for Status",
+  "version": 1,
+  "last_updated": "2026-10-01",
+  "ads": {
+    "enabled": true,
+    "test_mode": false,
+    "app_id": "ca-app-pub-4380281877506132~2341635958",
+    "rewarded_ad_id": "ca-app-pub-4380281877506132/9837906032",
+    "interstitial_ad_id": "ca-app-pub-4380281877506132/6987457975",
+    "banner_ad_id": "ca-app-pub-3940256099942544/6300978111"
+  },
+  "version_control": {
+    "min_version_code": 1,
+    "latest_version_code": 25,
+    "force_update": false,
+    "play_store_url": "https://play.google.com/store/apps/details?id=com.splitvideoforwhatsapp"
+  },
+  "notice": {
+    "show_dialog": false,
+    "title": "",
+    "message": ""
+  }
+}

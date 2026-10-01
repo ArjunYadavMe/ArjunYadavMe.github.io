@@ -1,0 +1,18 @@
+{
+  "app_id": "com.pro.drinkreminder",
+  "app_name": "Water Drinking Reminder - Pro",
+  "version": 1,
+  "last_updated": "2026-10-01",
+  "ads": {
+    "enabled": true,
+    "test_mode": false,
+    "app_id": "ca-app-pub-4380281877506132~2863831393",
+    "rewarded_ad_id": "ca-app-pub-4380281877506132/4101725591"
+  },
+  "version_control": {
+    "min_version_code": 1,
+    "latest_version_code": 3,
+    "force_update": false,
+    "play_store_url": "https://play.google.com/store/apps/details?id=com.pro.drinkreminder"
+  }
+}

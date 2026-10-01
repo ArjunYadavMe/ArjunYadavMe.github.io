@@ -1,0 +1,20 @@
+{
+  "app_id": "com.creditcard.swiperight",
+  "app_name": "SwipeRight: Card Compare India",
+  "version": 1,
+  "last_updated": "2026-10-01",
+  "ads": {
+    "enabled": true,
+    "test_mode": false,
+    "app_id": "ca-app-pub-4380281877506132~2863831393",
+    "rewarded_ad_id": "ca-app-pub-4380281877506132/4101725591",
+    "interstitial_ad_id": "ca-app-pub-3940256099942544/1033173712",
+    "banner_ad_id": "ca-app-pub-3940256099942544/6300978111"
+  },
+  "version_control": {
+    "min_version_code": 1,
+    "latest_version_code": 5,
+    "force_update": false,
+    "play_store_url": "https://play.google.com/store/apps/details?id=com.creditcard.swiperight"
+  }
+}
