@@ -1,8 +1,8 @@
 {
   "app_id": "com.splitvideoforwhatsapp",
   "app_name": "Auto Video Splitter for Status",
-  "version": 1,
-  "last_updated": "2026-10-01",
+  "version": 21,
+  "last_updated": "2026-10-02",
   "ads": {
     "enabled": true,
     "test_mode": false,
@@ -11,10 +11,16 @@
     "interstitial_ad_id": "ca-app-pub-4380281877506132/6987457975",
     "banner_ad_id": "ca-app-pub-3940256099942544/6300978111"
   },
+  "onesignal": {
+    "app_id": "YOUR_ONESIGNAL_APP_ID",
+    "api_key": ""
+  },
   "version_control": {
     "min_version_code": 1,
-    "latest_version_code": 25,
+    "latest_version_code": 21,
     "force_update": false,
+    "update_title": "Update Available",
+    "update_message": "A new version of Auto Video Splitter is available on Google Play with enhanced performance and stability.",
     "play_store_url": "https://play.google.com/store/apps/details?id=com.splitvideoforwhatsapp"
   },
   "notice": {
