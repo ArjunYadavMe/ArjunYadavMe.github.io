@@ -10,6 +10,25 @@
       "firebase-debug.log*",
       "studio*"
     ],
+    "cleanUrls": true,
+    "rewrites": [
+      {
+        "source": "/appconfig",
+        "destination": "/appconfig/index.html"
+      },
+      {
+        "source": "/appconfig/",
+        "destination": "/appconfig/index.html"
+      },
+      {
+        "source": "/config",
+        "destination": "/config/index.html"
+      },
+      {
+        "source": "/config/",
+        "destination": "/config/index.html"
+      }
+    ],
     "headers": [
       {
         "source": "**",

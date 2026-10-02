@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Config Dashboard — Arjun Yadav Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070913;
+      --surface: #0e1322;
+      --surface-hover: #131a30;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-focus: rgba(99, 102, 241, 0.6);
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --primary-glow: rgba(99, 102, 241, 0.3);
+      --emerald: #10b981;
+      --rose: #f43f5e;
+      --amber: #f59e0b;
+      --text-title: #ffffff;
+      --text-body: #94a3b8;
+      --text-muted: #64748b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text-body);
+      line-height: 1.5;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    /* Navbar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(7, 9, 19, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 16px;
+      box-shadow: 0 0 16px var(--primary-glow);
+    }
+    .brand-text {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text-title);
+      letter-spacing: -0.4px;
+    }
+    .brand-sub {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--emerald);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 8px var(--emerald);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 20px 0;
+    }
+
+    /* Page Header */
+    .header-section {
+      margin-bottom: 28px;
+    }
+    .header-section h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--text-title);
+      letter-spacing: -0.6px;
+      margin-bottom: 6px;
+    }
+    .header-section p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* Tabs Filter */
+    .tabs-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+    }
+    .tab-btn {
+      padding: 8px 16px;
+      border-radius: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-body);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: rgba(99, 102, 241, 0.15);
+      border-color: rgba(99, 102, 241, 0.4);
+      color: #fff;
+    }
+
+    /* App Cards Grid */
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 24px;
+    }
+    .app-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: all 0.2s ease;
+    }
+    .app-card:hover {
+      border-color: rgba(99, 102, 241, 0.3);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+    }
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-title);
+    }
+    .card-sub {
+      font-size: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    /* Form Controls */
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--primary);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .toggle-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 10px;
+    }
+    .toggle-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-title);
+    }
+    .toggle-desc {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* Switch */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(255, 255, 255, 0.12);
+      transition: .2s;
+      border-radius: 24px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .2s;
+      border-radius: 50%;
+    }
+    input:checked + .slider { background-color: var(--emerald); }
+    input:checked + .slider.rose { background-color: var(--rose); }
+    input:checked + .slider:before { transform: translateX(20px); }
+
+    /* Inputs */
+    .input-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .input-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .input-text {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: #fff;
+      font-size: 13px;
+      font-family: 'JetBrains Mono', monospace;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .input-text:focus {
+      border-color: var(--border-focus);
+    }
+
+    /* Card Actions */
+    .card-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .btn {
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+    .btn-save {
+      flex: 1;
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 14px var(--primary-glow);
+    }
+    .btn-save:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-body);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    /* Auth Modal */
+    .auth-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(7, 9, 19, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .auth-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 36px 32px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    }
+    .lock-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: rgba(99, 102, 241, 0.15);
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+    .auth-card h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-title);
+      margin-bottom: 6px;
+    }
+    .auth-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .auth-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      text-align: left;
+    }
+    .auth-error {
+      color: var(--rose);
+      font-size: 12px;
+      font-weight: 600;
+      display: none;
+      margin-top: 4px;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      padding: 14px 24px;
+      background: #1e293b;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 14px;
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      display: none;
+      z-index: 200;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-icon">AY</div>
+      <div>
+        <div class="brand-text">Arjun Yadav Studio</div>
+        <div class="brand-sub">Remote Config Controller</div>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <span class="status-pill"><span class="status-dot"></span> Live Production</span>
+      <button class="btn btn-secondary" onclick="openSettings()">⚙️ Settings</button>
+      <button class="btn btn-secondary" onclick="logout()">🔒 Lock</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="header-section">
+      <h1>Central App Configuration Hub</h1>
+      <p>Instant remote control for monetization, ad unit IDs, kill-switches, and version control across all published Google Play apps.</p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="tabs-bar" id="tabsBar">
+      <button class="tab-btn active" onclick="filterApp('all', this)">All Apps (5)</button>
+      <button class="tab-btn" onclick="filterApp('zeropath', this)">ZeroPath</button>
+      <button class="tab-btn" onclick="filterApp('video-splitter', this)">Video Splitter</button>
+      <button class="tab-btn" onclick="filterApp('swiperight', this)">SwipeRight</button>
+      <button class="tab-btn" onclick="filterApp('water-diary', this)">Water Diary</button>
+      <button class="tab-btn" onclick="filterApp('water-reminder-pro', this)">Water Pro</button>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="apps-grid" id="appsGrid">
+      <!-- Injected by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Password Authentication Modal -->
+  <div class="auth-overlay" id="authOverlay">
+    <div class="auth-card">
+      <div class="lock-icon">🔒</div>
+      <h2>Studio Admin Login</h2>
+      <p>Enter your master password to access and modify production remote configurations.</p>
+      
+      <form class="auth-form" onsubmit="handleLogin(event)">
+        <div class="input-row">
+          <label class="input-label">Master Password</label>
+          <input type="password" id="masterPasswordInput" class="input-text" placeholder="Enter admin password" required autofocus>
+          <div class="auth-error" id="authError">Incorrect password. Please try again.</div>
+        </div>
+
+        <button type="submit" class="btn btn-save" style="width: 100%; margin-top: 8px;">Unlock Studio Dashboard</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // Master Password SHA-256 hash for Arjun@2026
+    const MASTER_HASH = "4f8161da227cc7509746d036d03c8cab7edebe7cc01403f67b71c51f87d9d902";
+
+    const APP_REGISTRY = [
+      { slug: "zeropath", name: "ZeroPath: Loan & EMI Tracker", id: "com.arjunyadav.zeropath" },
+      { slug: "video-splitter", name: "Auto Video Splitter for Status", id: "com.splitvideoforwhatsapp" },
+      { slug: "swiperight", name: "SwipeRight: Card Compare India", id: "com.creditcard.swiperight" },
+      { slug: "water-diary", name: "Water Diary - Drink Reminder", id: "com.waterdiary.drinkreminder" },
+      { slug: "water-reminder-pro", name: "Water Drinking Reminder - Pro", id: "com.pro.drinkreminder" }
+    ];
+
+    let liveConfigs = {};
+
+    async function sha256(message) {
+      const msgBuffer = new TextEncoder().encode(message);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    async function handleLogin(e) {
+      if (e) e.preventDefault();
+      const pwd = document.getElementById('masterPasswordInput').value;
+      const hash = await sha256(pwd);
+
+      const customHash = localStorage.getItem('studio_custom_hash');
+      const targetHash = customHash || MASTER_HASH;
+
+      if (hash === targetHash || pwd === "Arjun@2026") {
+        sessionStorage.setItem('studio_authenticated', 'true');
+        document.getElementById('authOverlay').style.display = 'none';
+        loadAllConfigs();
+        showToast('🔓 Dashboard Unlocked Successfully');
+      } else {
+        document.getElementById('authError').style.display = 'block';
+      }
+    }
+
+    function checkAuth() {
+      if (sessionStorage.getItem('studio_authenticated') === 'true') {
+        document.getElementById('authOverlay').style.display = 'none';
+        loadAllConfigs();
+      } else {
+        document.getElementById('authOverlay').style.display = 'flex';
+      }
+    }
+
+    function logout() {
+      sessionStorage.removeItem('studio_authenticated');
+      document.getElementById('authOverlay').style.display = 'flex';
+      document.getElementById('masterPasswordInput').value = '';
+    }
+
+    async function loadAllConfigs() {
+      const grid = document.getElementById('appsGrid');
+      grid.innerHTML = '<div style="color: var(--text-muted); padding: 40px; text-align: center;">Loading live configurations from arjunyadav.com...</div>';
+
+      for (const app of APP_REGISTRY) {
+        try {
+          const res = await fetch(`/config/${app.slug}.json?t=${Date.now()}`);
+          if (res.ok) {
+            liveConfigs[app.slug] = await res.json();
+          }
+        } catch (err) {
+          console.error(`Failed to load ${app.slug}:`, err);
+        }
+      }
+      renderCards();
+    }
+
+    function renderCards(filter = 'all') {
+      const grid = document.getElementById('appsGrid');
+      grid.innerHTML = '';
+
+      for (const app of APP_REGISTRY) {
+        if (filter !== 'all' && app.slug !== filter) continue;
+
+        const data = liveConfigs[app.slug] || {
+          app_id: app.id,
+          app_name: app.name,
+          ads: { enabled: true, test_mode: false, app_id: '', rewarded_ad_id: '', interstitial_ad_id: '', banner_ad_id: '' },
+          version_control: { latest_version_code: 1, min_version_code: 1, force_update: false, play_store_url: '' },
+          notice: { show_dialog: false, title: '', message: '' }
+        };
+
+        const card = document.createElement('div');
+        card.className = 'app-card';
+        card.id = `card-${app.slug}`;
+        card.innerHTML = `
+          <div class="card-head">
+            <div>
+              <div class="card-title">${app.name}</div>
+              <div class="card-sub">${app.id} • slug: ${app.slug}</div>
+            </div>
+            <a href="/config/${app.slug}.json" target="_blank" class="btn btn-secondary" style="font-size: 11px; padding: 4px 10px;">Raw JSON ↗</a>
+          </div>
+
+          <!-- Ad Controls -->
+          <div>
+            <div class="section-label">💰 Monetization & Ad Unit IDs</div>
+            <div class="field-group">
+              <div class="toggle-row">
+                <div>
+                  <div class="toggle-title">Ads Enabled (Master Kill-Switch)</div>
+                  <div class="toggle-desc">Instantly stop all ad requests worldwide</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="ads_enabled_${app.slug}" ${data.ads && data.ads.enabled ? 'checked' : ''} onchange="updateLocal('${app.slug}', 'ads.enabled', this.checked)">
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="toggle-row">
+                <div>
+                  <div class="toggle-title">Test Ads Mode</div>
+                  <div class="toggle-desc">Serve Google demo ads for testing without policy strikes</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="test_mode_${app.slug}" ${data.ads && data.ads.test_mode ? 'checked' : ''} onchange="updateLocal('${app.slug}', 'ads.test_mode', this.checked)">
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="input-row">
+                <label class="input-label">Rewarded Ad Unit ID</label>
+                <input type="text" class="input-text" value="${(data.ads && data.ads.rewarded_ad_id) || ''}" placeholder="ca-app-pub-.../..." onchange="updateLocal('${app.slug}', 'ads.rewarded_ad_id', this.value.trim())">
+              </div>
+
+              <div class="input-row">
+                <label class="input-label">Interstitial Ad Unit ID</label>
+                <input type="text" class="input-text" value="${(data.ads && data.ads.interstitial_ad_id) || ''}" placeholder="ca-app-pub-.../..." onchange="updateLocal('${app.slug}', 'ads.interstitial_ad_id', this.value.trim())">
+              </div>
+
+              <div class="input-row">
+                <label class="input-label">Banner Ad Unit ID</label>
+                <input type="text" class="input-text" value="${(data.ads && data.ads.banner_ad_id) || ''}" placeholder="ca-app-pub-.../..." onchange="updateLocal('${app.slug}', 'ads.banner_ad_id', this.value.trim())">
+              </div>
+            </div>
+          </div>
+
+          <!-- Version Control -->
+          <div>
+            <div class="section-label">📦 Version Control & Force Update</div>
+            <div class="field-group">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div class="input-row">
+                  <label class="input-label">Latest Version Code</label>
+                  <input type="number" class="input-text" value="${(data.version_control && data.version_control.latest_version_code) || 1}" onchange="updateLocal('${app.slug}', 'version_control.latest_version_code', parseInt(this.value))">
+                </div>
+                <div class="input-row">
+                  <label class="input-label">Min Required Version</label>
+                  <input type="number" class="input-text" value="${(data.version_control && data.version_control.min_version_code) || 1}" onchange="updateLocal('${app.slug}', 'version_control.min_version_code', parseInt(this.value))">
+                </div>
+              </div>
+
+              <div class="toggle-row">
+                <div>
+                  <div class="toggle-title">Force Update Dialog</div>
+                  <div class="toggle-desc">Block users on older versions from using app</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="force_${app.slug}" ${data.version_control && data.version_control.force_update ? 'checked' : ''} onchange="updateLocal('${app.slug}', 'version_control.force_update', this.checked)">
+                  <span class="slider rose"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- In-App Notice -->
+          <div>
+            <div class="section-label">📢 In-App Broadcast Notice</div>
+            <div class="field-group">
+              <div class="toggle-row">
+                <div>
+                  <div class="toggle-title">Show In-App Notice</div>
+                  <div class="toggle-desc">Display an alert modal on next app open</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" id="notice_${app.slug}" ${data.notice && data.notice.show_dialog ? 'checked' : ''} onchange="updateLocal('${app.slug}', 'notice.show_dialog', this.checked)">
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="input-row">
+                <label class="input-label">Notice Title</label>
+                <input type="text" class="input-text" value="${(data.notice && data.notice.title) || ''}" placeholder="e.g. Scheduled Maintenance" onchange="updateLocal('${app.slug}', 'notice.title', this.value.trim())">
+              </div>
+
+              <div class="input-row">
+                <label class="input-label">Notice Message</label>
+                <input type="text" class="input-text" value="${(data.notice && data.notice.message) || ''}" placeholder="e.g. A new update with backup is coming tomorrow" onchange="updateLocal('${app.slug}', 'notice.message', this.value.trim())">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Actions -->
+          <div class="card-actions">
+            <button class="btn btn-save" onclick="publishConfig('${app.slug}')">🚀 Publish Live</button>
+            <button class="btn btn-secondary" onclick="copyJson('${app.slug}')">📋 Copy JSON</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      }
+    }
+
+    function updateLocal(slug, path, val) {
+      const parts = path.split('.');
+      if (!liveConfigs[slug]) liveConfigs[slug] = {};
+      if (parts.length === 2) {
+        if (!liveConfigs[slug][parts[0]]) liveConfigs[slug][parts[0]] = {};
+        liveConfigs[slug][parts[0]][parts[1]] = val;
+      }
+      showToast(`Saved changes for ${slug} locally.`);
+    }
+
+    async function publishConfig(slug) {
+      showToast(`Publishing ${slug} updates...`);
+
+      let githubToken = localStorage.getItem('studio_gh_token');
+      if (!githubToken) {
+        githubToken = prompt("Enter your GitHub Personal Access Token to commit changes to production:");
+        if (githubToken) {
+          localStorage.setItem('studio_gh_token', githubToken.trim());
+        } else {
+          alert("GitHub Token required to publish live changes.");
+          return;
+        }
+      }
+      const repo = "ArjunYadavMe/ArjunYadavMe.github.io";
+      const filePath = `config/${slug}.json`;
+
+      const updatedData = liveConfigs[slug];
+      updatedData.last_updated = new Date().toISOString().split('T')[0];
+      const contentStr = JSON.stringify(updatedData, null, 2) + "\n";
+      const contentBase64 = btoa(unescape(encodeURIComponent(contentStr)));
+
+      try {
+        // 1. Get current file sha from GitHub
+        const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/${filePath}`, {
+          headers: { 'Authorization': `Bearer ${githubToken}`, 'Accept': 'application/vnd.github.v3+json' }
+        });
+        
+        let sha = null;
+        if (getRes.ok) {
+          const fileData = await getRes.json();
+          sha = fileData.sha;
+        }
+
+        // 2. Commit update to GitHub
+        const putRes = await fetch(`https://api.github.com/repos/${repo}/contents/${filePath}`, {
+          method: 'PUT',
+          headers: {
+            'Authorization': `Bearer ${githubToken}`,
+            'Content-Type': 'application/json',
+            'Accept': 'application/vnd.github.v3+json'
+          },
+          body: JSON.stringify({
+            message: `config: update ${slug} via web appconfig dashboard`,
+            content: contentBase64,
+            sha: sha
+          })
+        });
+
+        if (putRes.ok) {
+          showToast(`🎉 ${slug}.json successfully committed! Live deployment triggered via GitHub Actions.`);
+        } else {
+          const err = await putRes.json();
+          alert(`Publish failed: ${err.message || 'Token or permission error'}`);
+        }
+      } catch (err) {
+        alert(`Error communicating with GitHub: ${err.message}`);
+      }
+    }
+
+    function copyJson(slug) {
+      const jsonStr = JSON.stringify(liveConfigs[slug], null, 2);
+      navigator.clipboard.writeText(jsonStr);
+      showToast(`📋 Copied ${slug}.json to clipboard!`);
+    }
+
+    function filterApp(slug, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderCards(slug);
+    }
+
+    function openSettings() {
+      const currentToken = localStorage.getItem('studio_gh_token') || '';
+      const promptVal = prompt("Enter custom GitHub Personal Access Token (or leave blank to use default):", currentToken);
+      if (promptVal !== null) {
+        if (promptVal.trim()) {
+          localStorage.setItem('studio_gh_token', promptVal.trim());
+          showToast("GitHub Token saved.");
+        } else {
+          localStorage.removeItem('studio_gh_token');
+          showToast("Default token restored.");
+        }
+      }
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.innerText = msg;
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 4000);
+    }
+
+    checkAuth();
+  </script>
+</body>
+</html>
