@@ -20,6 +20,7 @@ CONFIG_DIR = os.path.join(STUDIO_DIR, "config")
 PROD_BASE_URL = "https://arjunyadav.com/config"
 
 APPS = [
+    {"slug": "gstwali", "name": "GSTWali: GSTR-1 JSON Generator", "id": "com.arjunyadav.gstr1meesho"},
     {"slug": "zeropath", "name": "ZeroPath: Loan & EMI Tracker", "id": "com.arjunyadav.zeropath"},
     {"slug": "video-splitter", "name": "Auto Video Splitter for Status", "id": "com.splitvideoforwhatsapp"},
     {"slug": "swiperight", "name": "SwipeRight: Card Compare India", "id": "com.creditcard.swiperight"},

@@ -1,0 +1,27 @@
+{
+  "app_id": "com.arjunyadav.gstr1meesho",
+  "app_name": "GSTWali: GSTR-1 JSON Generator",
+  "version": 1,
+  "last_updated": "2026-10-02",
+  "ads": {
+    "enabled": false,
+    "test_mode": false,
+    "app_id": "ca-app-pub-4380281877506132~2863831393",
+    "rewarded_ad_id": "",
+    "interstitial_ad_id": "",
+    "banner_ad_id": ""
+  },
+  "version_control": {
+    "min_version_code": 1,
+    "latest_version_code": 5,
+    "force_update": false,
+    "update_title": "GSTWali Update Available",
+    "update_message": "A new version with faster GSTR-1 JSON processing and fixes is available.",
+    "play_store_url": "https://play.google.com/store/apps/details?id=com.arjunyadav.gstr1meesho"
+  },
+  "notice": {
+    "show_dialog": false,
+    "title": "",
+    "message": ""
+  }
+}
