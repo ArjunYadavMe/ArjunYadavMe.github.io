@@ -14,13 +14,13 @@
   "version_control": {
     "min_version_code": 50,
     "latest_version_code": 52,
-    "force_update": true,
+    "force_update": false,
     "update_title": "Update Available",
     "update_message": "A new version with improved performance is available.",
     "play_store_url": "https://play.google.com/store/apps/details?id=com.arjunyadav.zeropath"
   },
   "notice": {
-    "show_dialog": true,
+    "show_dialog": false,
     "title": "Reward Notification",
     "message": "HI User"
   }
