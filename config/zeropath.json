@@ -12,7 +12,7 @@
     "banner_ad_id": "ca-app-pub-3940256099942544/6300978111"
   },
   "version_control": {
-    "min_version_code": 1,
+    "min_version_code": 50,
     "latest_version_code": 52,
     "force_update": true,
     "update_title": "Update Available",
