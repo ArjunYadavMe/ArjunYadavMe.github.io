@@ -707,7 +707,7 @@
                 <a href="#flagship" class="nav-link">Flagship</a>
                 <a href="/privacy/" class="nav-link">Privacy Center</a>
                 <a href="/app-ads.txt" class="nav-link">app-ads.txt</a>
-                <a href="mailto:arjunyadav.ps@gmail.com" class="btn-nav">Contact</a>
+                <a href="#contact" onclick="openContact(event)" class="btn-nav">Contact</a>
             </div>
         </nav>
 
@@ -1002,15 +1002,22 @@
                 <a href="/privacy/water-diary.html">Water Diary Privacy</a>
                 <a href="/privacy/water-reminder-pro.html">Water Pro Privacy</a>
                 <a href="/app-ads.txt">app-ads.txt</a>
-                <a href="mailto:arjunyadav.ps@gmail.com">Contact Developer</a>
+                <a href="#contact" onclick="openContact(event)">Contact Developer</a>
             </div>
             <p class="footer-copy">
-                &copy; 2026 Arjun Yadav Studio. All rights reserved. Registered Google Play Developer Account: <strong>Play Holi</strong>.
+                &copy; 2026 Arjun Yadav Studio. All rights reserved. Independent Mobile Application Development.
             </p>
         </footer>
     </div>
 
     <script>
+        function openContact(e) {
+            if (e) e.preventDefault();
+            const u = 'arjunyadav.ps';
+            const d = 'gmail.com';
+            window.location.href = 'mailto:' + u + '@' + d;
+        }
+
         function filterCategory(category, btn) {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');

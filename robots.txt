@@ -1,0 +1,26 @@
+# robots.txt for arjunyadav.com (Arjun Yadav Studio)
+User-agent: *
+Allow: /
+Allow: /privacy/
+Allow: /app-ads.txt
+Disallow: /config/
+Disallow: /*.json$
+
+# Block AI and aggressive data harvesting bots from reconnaissance
+User-agent: GPTBot
+Disallow: /config/
+
+User-agent: ChatGPT-User
+Disallow: /config/
+
+User-agent: ClaudeBot
+Disallow: /config/
+
+User-agent: anthropic-ai
+Disallow: /config/
+
+User-agent: CCBot
+Disallow: /config/
+
+User-agent: Google-Extended
+Disallow: /config/
