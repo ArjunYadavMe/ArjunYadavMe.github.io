@@ -1,0 +1,27 @@
+{
+  "app_id": "com.finance.financecalculator",
+  "app_name": "Finance Calculator: EMI & SIP",
+  "version": 1,
+  "last_updated": "2026-10-03",
+  "ads": {
+    "enabled": false,
+    "test_mode": true,
+    "app_id": "ca-app-pub-4380281877506132~2863831393",
+    "rewarded_ad_id": "ca-app-pub-4380281877506132/4101725591",
+    "interstitial_ad_id": "ca-app-pub-3940256099942544/1033173712",
+    "banner_ad_id": "ca-app-pub-3940256099942544/6300978111"
+  },
+  "version_control": {
+    "min_version_code": 1,
+    "latest_version_code": 1,
+    "force_update": false,
+    "update_title": "Update Available",
+    "update_message": "A new version with improved financial calculations is available.",
+    "play_store_url": "https://play.google.com/store/apps/details?id=com.finance.financecalculator"
+  },
+  "notice": {
+    "show_dialog": false,
+    "title": "Welcome to Finance Calculator",
+    "message": "Welcome to Finance Calculator Pro! Calculate EMI, SIP, and plan your wealth."
+  }
+}

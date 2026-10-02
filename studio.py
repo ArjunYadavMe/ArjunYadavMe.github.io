@@ -26,6 +26,7 @@ APPS = [
     {"slug": "swiperight", "name": "SwipeRight: Card Compare India", "id": "com.creditcard.swiperight"},
     {"slug": "water-diary", "name": "Water Diary - Drink Reminder", "id": "com.waterdiary.drinkreminder"},
     {"slug": "water-reminder-pro", "name": "Water Drinking Reminder - Pro", "id": "com.pro.drinkreminder"},
+    {"slug": "finance-calculator", "name": "Finance Calculator: EMI & SIP", "id": "com.finance.financecalculator"},
 ]
 
 def get_config_path(slug):
