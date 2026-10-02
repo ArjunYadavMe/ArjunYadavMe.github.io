@@ -11,13 +11,6 @@
     "interstitial_ad_id": "ca-app-pub-3940256099942544/1033173712",
     "banner_ad_id": "ca-app-pub-3940256099942544/6300978111"
   },
-  "integrations": {
-    "revenuecat_public_key": "goog_tjXkeoNOxafLucTPZWWsJIVDCBT",
-    "revenuecat_project_id": "85ec5bb0",
-    "onesignal_app_id": "f1f5b0b9-5368-4cfe-8d6b-a5733b49090c",
-    "firebase_project_id": "clearemi-55bda",
-    "support_email": "arjunyadav.ps@gmail.com"
-  },
   "version_control": {
     "min_version_code": 1,
     "latest_version_code": 52,
