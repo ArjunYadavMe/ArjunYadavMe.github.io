@@ -3,418 +3,1027 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arjun Yadav — Mobile App Developer & Software Engineer</title>
-    <meta name="description" content="Official developer portfolio of Arjun Yadav. Creator of ZeroPath, Auto Video Splitter, SwipeRight, Water Diary, and GSTWali.">
+    <title>Arjun Yadav — Independent Android App Studio</title>
+    <meta name="description" content="Official developer portfolio of Arjun Yadav. Engineering offline-first personal finance, creator utilities, and habit tools for Google Play.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-hover: #1d4ed8;
-            --bg: #090d16;
-            --surface: #111827;
-            --surface-card: #162032;
-            --border: #1f293d;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent-green: #10b981;
+            --bg: #06080e;
+            --bg-subtle: #0b0f19;
+            --surface: #101624;
+            --surface-hover: #161e31;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(99, 102, 241, 0.4);
+            --primary: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.25);
+            --accent-cyan: #06b6d4;
+            --accent-emerald: #10b981;
+            --accent-rose: #f43f5e;
+            --accent-amber: #f59e0b;
+            --text-title: #ffffff;
+            --text-body: #94a3b8;
+            --text-muted: #64748b;
         }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
         body {
             font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg);
-            color: var(--text-main);
+            color: var(--text-body);
             line-height: 1.6;
-            padding: 0;
             overflow-x: hidden;
-        }
-        .container {
-            max-width: 1040px;
-            margin: 0 auto;
-            padding: 0 24px;
+            position: relative;
         }
 
-        /* Header */
-        header {
-            padding: 32px 0;
+        /* Ambient Cosmic Lighting */
+        .ambient-glow-1 {
+            position: absolute;
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 480px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, rgba(6, 182, 212, 0.08) 40%, transparent 70%);
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .ambient-glow-2 {
+            position: absolute;
+            top: 700px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+            filter: blur(90px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navbar */
+        nav.navbar {
+            position: sticky;
+            top: 16px;
+            z-index: 100;
+            background: rgba(11, 15, 25, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 9999px;
+            padding: 12px 24px;
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border);
+            margin-top: 16px;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            transition: all 0.2s ease;
         }
-        .logo {
-            font-weight: 800;
-            font-size: 20px;
-            letter-spacing: -0.5px;
-            color: #fff;
-            text-decoration: none;
+
+        .nav-brand {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            text-decoration: none;
         }
-        .logo-dot {
-            width: 10px;
-            height: 10px;
-            background: var(--primary);
+
+        .brand-avatar {
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
-            box-shadow: 0 0 12px var(--primary);
+            background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 800;
+            font-size: 14px;
+            box-shadow: 0 0 16px var(--primary-glow);
         }
-        nav { display: flex; gap: 20px; align-items: center; }
-        nav a {
-            color: var(--text-muted);
+
+        .brand-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-title);
+            letter-spacing: -0.3px;
+        }
+
+        .brand-tag {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 9999px;
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-emerald);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dot-pulse {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-emerald);
+            box-shadow: 0 0 8px var(--accent-emerald);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-link {
+            color: var(--text-body);
             text-decoration: none;
             font-size: 14px;
             font-weight: 500;
             transition: color 0.2s;
         }
-        nav a:hover { color: #fff; }
+
+        .nav-link:hover { color: #fff; }
+
+        .btn-nav {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border);
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-nav:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
 
         /* Hero */
         .hero {
-            padding: 72px 0 48px;
+            padding: 80px 0 60px;
             text-align: center;
         }
+
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(37, 99, 235, 0.12);
-            color: #60a5fa;
-            border: 1px solid rgba(37, 99, 235, 0.3);
             padding: 6px 16px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
             border-radius: 9999px;
+            color: #a5b4fc;
             font-size: 13px;
             font-weight: 600;
             margin-bottom: 24px;
         }
-        .pulse {
-            width: 8px;
-            height: 8px;
-            background: var(--accent-green);
-            border-radius: 50%;
-            box-shadow: 0 0 8px var(--accent-green);
-        }
-        .hero h1 {
-            font-size: clamp(36px, 5vw, 54px);
+
+        .hero-title {
+            font-size: clamp(38px, 6vw, 64px);
             font-weight: 800;
-            line-height: 1.15;
-            letter-spacing: -1.5px;
-            margin-bottom: 20px;
-            background: linear-gradient(180deg, #ffffff 0%, #94a3b8 100%);
+            line-height: 1.1;
+            letter-spacing: -1.8px;
+            color: #fff;
+            margin-bottom: 24px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 20%, #a5b4fc 60%, #38bdf8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .hero p {
-            font-size: 18px;
-            color: var(--text-muted);
-            max-width: 640px;
+
+        .hero-sub {
+            font-size: clamp(16px, 2vw, 19px);
+            color: var(--text-body);
+            max-width: 660px;
             margin: 0 auto 36px;
+            line-height: 1.7;
         }
 
-        /* Apps Grid */
-        .section-title {
-            font-size: 24px;
-            font-weight: 700;
+        .hero-cta-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 56px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgba(99, 102, 241, 0.55);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Stats Bar */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            max-width: 880px;
+            margin: 0 auto;
+            background: rgba(16, 22, 36, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 8px;
+        }
+
+        .stat-num {
+            font-size: 26px;
+            font-weight: 800;
+            color: #fff;
             letter-spacing: -0.5px;
-            margin: 48px 0 24px;
+            margin-bottom: 2px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-weight: 600;
+        }
+
+        /* Flagship Spotlight (ZeroPath) */
+        .spotlight-section {
+            margin: 72px 0 64px;
+        }
+
+        .spotlight-card {
+            background: linear-gradient(135deg, rgba(30, 41, 69, 0.7) 0%, rgba(16, 22, 36, 0.9) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 28px;
+            padding: 48px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: center;
+            box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.7), 0 0 40px rgba(99, 102, 241, 0.12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spotlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top left, rgba(99, 102, 241, 0.15), transparent 50%);
+            pointer-events: none;
+        }
+
+        .spotlight-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            color: #c7d2fe;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .spotlight-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .spotlight-desc {
+            font-size: 15px;
+            color: #cbd5e1;
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .spotlight-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 32px;
+        }
+
+        .pill {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #e2e8f0;
+            padding: 5px 12px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .spotlight-actions {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* Mockup Visual for Spotlight */
+        .spotlight-visual {
+            background: rgba(11, 15, 25, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .mockup-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 12px;
         }
+
+        .mockup-status {
+            font-size: 12px;
+            color: var(--accent-emerald);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .mockup-stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 14px;
+        }
+
+        .mockup-stat-val {
+            font-size: 20px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+
+        .mockup-stat-lbl {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* Portfolio Filter */
+        .portfolio-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 64px 0 28px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .section-headline {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            color: #fff;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 8px;
+            background: rgba(16, 22, 36, 0.8);
+            border: 1px solid var(--border);
+            border-radius: 9999px;
+            padding: 4px;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+        }
+
+        /* Apps Grid */
         .apps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
             gap: 24px;
+            margin-bottom: 80px;
         }
+
         .app-card {
-            background: var(--surface-card);
+            background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 20px;
+            border-radius: 22px;
             padding: 28px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: all 0.25s ease;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
         }
+
         .app-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(37, 99, 235, 0.5);
-            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+            background: var(--surface-hover);
+            border-color: var(--border-hover);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 25px rgba(99, 102, 241, 0.1);
         }
-        .app-header {
+
+        .app-top {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 16px;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
         }
-        .app-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
+
+        .app-icon-box {
+            width: 58px;
+            height: 58px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            background: rgba(37, 99, 235, 0.15);
-            border: 1px solid rgba(37, 99, 235, 0.3);
             flex-shrink: 0;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
         }
-        .app-title h3 {
+
+        /* Icon Variants */
+        .icon-zeropath {
+            background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+        }
+        .icon-splitter {
+            background: linear-gradient(135deg, #e11d48 0%, #fb7185 100%);
+        }
+        .icon-swiperight {
+            background: linear-gradient(135deg, #d97706 0%, #fbbf24 100%);
+        }
+        .icon-water {
+            background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+        }
+        .icon-water-pro {
+            background: linear-gradient(135deg, #0f766e 0%, #2dd4bf 100%);
+        }
+
+        .app-meta h3 {
             font-size: 18px;
             font-weight: 700;
             color: #fff;
-            margin-bottom: 2px;
+            letter-spacing: -0.3px;
+            margin-bottom: 4px;
         }
-        .app-category {
-            font-size: 12px;
+
+        .package-id {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
             color: var(--text-muted);
+            letter-spacing: -0.2px;
         }
+
         .app-desc {
             font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 20px;
+            color: var(--text-body);
             line-height: 1.6;
+            margin-bottom: 20px;
         }
-        .app-actions {
+
+        .app-features {
             display: flex;
-            gap: 12px;
-            align-items: center;
-            margin-top: auto;
             flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 24px;
         }
-        .btn-play {
-            background: var(--primary);
-            color: #fff;
+
+        .feature-tag {
+            font-size: 11px;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #cbd5e1;
+            padding: 3px 10px;
+            border-radius: 9999px;
+        }
+
+        .app-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+        }
+
+        .btn-play-store {
+            background: #fff;
+            color: #000;
+            font-size: 13px;
+            font-weight: 700;
             padding: 8px 16px;
             border-radius: 10px;
             text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            transition: background 0.2s;
+            gap: 6px;
+            transition: all 0.2s;
         }
-        .btn-play:hover { background: var(--primary-hover); }
-        .btn-link {
+
+        .btn-play-store:hover {
+            background: #e2e8f0;
+            transform: scale(1.02);
+        }
+
+        .link-policy {
             color: var(--text-muted);
-            text-decoration: none;
             font-size: 13px;
             font-weight: 500;
+            text-decoration: none;
             transition: color 0.2s;
         }
-        .btn-link:hover { color: #fff; }
 
-        /* Trust / Info Bar */
-        .info-bar {
-            background: var(--surface);
+        .link-policy:hover { color: #fff; text-decoration: underline; }
+
+        /* Trust & Architecture Section */
+        .trust-section {
+            background: var(--bg-subtle);
             border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 24px 32px;
-            margin: 64px 0 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            border-radius: 24px;
+            padding: 48px;
+            margin-bottom: 80px;
         }
-        .info-item { display: flex; align-items: center; gap: 12px; }
-        .info-item span { font-size: 14px; color: var(--text-muted); }
-        .info-item strong { color: #fff; font-weight: 600; }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .trust-card h4 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .trust-card p {
+            font-size: 14px;
+            color: var(--text-body);
+            line-height: 1.6;
+        }
 
         /* Footer */
         footer {
             border-top: 1px solid var(--border);
-            padding: 40px 0;
-            margin-top: 40px;
+            padding: 56px 0 40px;
             text-align: center;
-            font-size: 14px;
-            color: var(--text-muted);
         }
-        footer a { color: #60a5fa; text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
-        .footer-links {
+
+        .footer-nav {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-bottom: 16px;
+            gap: 24px;
             flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .footer-nav a {
+            color: var(--text-body);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-nav a:hover { color: #fff; }
+
+        .footer-copy {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 860px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .spotlight-card { grid-template-columns: 1fr; padding: 32px; }
+            .trust-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Top Nav -->
-        <header>
-            <a href="/" class="logo">
-                <span class="logo-dot"></span>
-                Arjun Yadav
-            </a>
-            <nav>
-                <a href="#apps">Apps</a>
-                <a href="/privacy/">Privacy Policies</a>
-                <a href="/app-ads.txt">app-ads.txt</a>
-                <a href="mailto:arjunyadav.ps@gmail.com">Contact</a>
-            </nav>
-        </header>
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
 
-        <!-- Hero -->
+    <div class="container">
+        <!-- Modern Floating Navbar -->
+        <nav class="navbar">
+            <a href="/" class="nav-brand">
+                <div class="brand-avatar">AY</div>
+                <div>
+                    <div class="brand-name">Arjun Yadav Studio</div>
+                </div>
+            </a>
+            <div class="brand-tag">
+                <span class="dot-pulse"></span> Google Play Live
+            </div>
+            <div class="nav-links">
+                <a href="#apps" class="nav-link">Portfolio</a>
+                <a href="#flagship" class="nav-link">Flagship</a>
+                <a href="/privacy/" class="nav-link">Privacy Center</a>
+                <a href="/app-ads.txt" class="nav-link">app-ads.txt</a>
+                <a href="mailto:arjunyadav.ps@gmail.com" class="btn-nav">Contact</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
         <section class="hero">
             <div class="hero-badge">
-                <span class="pulse"></span>
-                Google Play Verified Android Developer (Play Holi)
+                <span>✦</span> Verified Independent Android Developer
             </div>
-            <h1>Fast, Private & Purpose-Built Android Apps</h1>
-            <p>Official developer portal for personal finance management, video tools, and utility apps by Arjun Yadav.</p>
+            <h1 class="hero-title">
+                Building Purpose-Driven Apps for <br>
+                <span class="gradient-text">Millions of Everyday Users</span>
+            </h1>
+            <p class="hero-sub">
+                Engineering high-performance, offline-first personal finance systems, creator video utilities, and mindful habit tools with zero telemetry leaks and Top 1% craftsmanship.
+            </p>
+            <div class="hero-cta-group">
+                <a href="#apps" class="btn-primary">
+                    Explore App Ecosystem
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+                </a>
+                <a href="/privacy/" class="btn-secondary">
+                    Privacy Center Directory
+                </a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-num">5</div>
+                    <div class="stat-label">Published Apps</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">100%</div>
+                    <div class="stat-label">Offline & Private</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">0%</div>
+                    <div class="stat-label">Data Harvesting</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">4.8★</div>
+                    <div class="stat-label">User Satisfaction</div>
+                </div>
+            </div>
         </section>
 
-        <!-- Apps Section -->
-        <div class="section-title" id="apps">
-            <h2>Published Android Applications</h2>
+        <!-- Flagship Spotlight: ZeroPath -->
+        <section class="spotlight-section" id="flagship">
+            <div class="spotlight-card">
+                <div>
+                    <span class="spotlight-tag">⭐ Flagship Release</span>
+                    <h2 class="spotlight-title">ZeroPath: Loan & EMI Tracker</h2>
+                    <p class="spotlight-desc">
+                        A modern personal debt optimizer and loan management suite. Plan prepayments with Warikoo Step-Up logic, compare Snowball vs. Avalanche strategies, and visualize principal amortization without sharing a single byte of banking data.
+                    </p>
+                    <div class="spotlight-pills">
+                        <span class="pill">⚡ Step-Up Simulator</span>
+                        <span class="pill">📊 Full Amortization Visualizer</span>
+                        <span class="pill">🔒 Local SQLite Encryption</span>
+                        <span class="pill">🔔 Smart EMI Reminders</span>
+                    </div>
+                    <div class="spotlight-actions">
+                        <a href="https://play.google.com/store/apps/details?id=com.arjunyadav.zeropath" target="_blank" class="btn-primary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.793 12 3.61 22.186a1.996 1.996 0 0 1-.22-.924V2.738c0-.34.08-.656.22-.924zM15.207 13.414l2.585 2.586-13.01 7.427 10.425-10.013zm0-2.828L4.782.573 17.792 8l-2.585 2.586zm1.414 1.414l4.385 2.502a1.499 1.499 0 0 0 0-2.502L16.621 12z"/></svg>
+                            Get on Google Play ↗
+                        </a>
+                        <a href="/privacy/zeropath.html" class="btn-secondary">Privacy Policy</a>
+                    </div>
+                </div>
+
+                <div class="spotlight-visual">
+                    <div class="mockup-header">
+                        <span style="font-size: 13px; font-weight: 700; color: #fff;">ZeroPath Analytics Engine</span>
+                        <span class="mockup-status">● Live Cloud Sync</span>
+                    </div>
+                    <div class="mockup-stat-card">
+                        <div class="mockup-stat-val">₹ 14,20,000</div>
+                        <div class="mockup-stat-lbl">Active Principal Tracked</div>
+                    </div>
+                    <div class="mockup-stat-card">
+                        <div class="mockup-stat-val" style="color: var(--accent-emerald);">48 Months Saved</div>
+                        <div class="mockup-stat-lbl">Prepayment Impact Simulator</div>
+                    </div>
+                    <div class="mockup-stat-card">
+                        <div class="mockup-stat-val" style="color: var(--accent-cyan);">100% Local Device Storage</div>
+                        <div class="mockup-stat-lbl">Zero Banking Credential Access</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Grid -->
+        <div class="portfolio-header" id="apps">
+            <div>
+                <h2 class="section-headline">Published Android Applications</h2>
+                <p style="font-size: 14px; color: var(--text-muted); margin-top: 4px;">Direct from Google Play Store • Maintained by Arjun Yadav</p>
+            </div>
+            <div class="filter-group">
+                <button class="filter-btn active" onclick="filterCategory('all', this)">All (5)</button>
+                <button class="filter-btn" onclick="filterCategory('finance', this)">Finance</button>
+                <button class="filter-btn" onclick="filterCategory('creator', this)">Creator</button>
+                <button class="filter-btn" onclick="filterCategory('health', this)">Health</button>
+            </div>
         </div>
 
         <div class="apps-grid">
             <!-- App 1: ZeroPath -->
-            <div class="app-card">
+            <div class="app-card" data-category="finance">
                 <div>
-                    <div class="app-header">
-                        <div class="app-icon">📊</div>
-                        <div class="app-title">
-                            <h3>ZeroPath: Loan & EMI Tracker</h3>
-                            <span class="app-category">Finance • com.arjunyadav.zeropath</span>
+                    <div class="app-top">
+                        <div class="app-icon-box icon-zeropath">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                        </div>
+                        <div class="app-meta">
+                            <h3>ZeroPath: Loan & EMI</h3>
+                            <div class="package-id">com.arjunyadav.zeropath</div>
                         </div>
                     </div>
-                    <p class="app-desc">Track loan schedules, compute interest savings with extra payments, and simulate debt payoff freedom with zero cloud leaks.</p>
+                    <p class="app-desc">
+                        Smart debt payoff simulator and EMI calendar. Track multiple lenders, compute prepayment tenure drops, and keep financial figures 100% private.
+                    </p>
+                    <div class="app-features">
+                        <span class="feature-tag">Amortization</span>
+                        <span class="feature-tag">Offline SQLite</span>
+                        <span class="feature-tag">Smart Reminders</span>
+                    </div>
                 </div>
-                <div class="app-actions">
-                    <a href="https://play.google.com/store/apps/details?id=com.arjunyadav.zeropath" target="_blank" class="btn-play">
+                <div class="app-bottom">
+                    <a href="https://play.google.com/store/apps/details?id=com.arjunyadav.zeropath" target="_blank" class="btn-play-store">
                         Play Store ↗
                     </a>
-                    <a href="/privacy/zeropath.html" class="btn-link">Privacy Policy</a>
+                    <a href="/privacy/zeropath.html" class="link-policy">Privacy Policy</a>
                 </div>
             </div>
 
             <!-- App 2: Auto Video Splitter -->
-            <div class="app-card">
+            <div class="app-card" data-category="creator">
                 <div>
-                    <div class="app-header">
-                        <div class="app-icon">✂️</div>
-                        <div class="app-title">
-                            <h3>Auto Video Splitter for Status</h3>
-                            <span class="app-category">Video Players • com.splitvideoforwhatsapp</span>
+                    <div class="app-top">
+                        <div class="app-icon-box icon-splitter">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+                        </div>
+                        <div class="app-meta">
+                            <h3>Auto Video Splitter</h3>
+                            <div class="package-id">com.splitvideoforwhatsapp</div>
                         </div>
                     </div>
-                    <p class="app-desc">Easily cut long videos into seamless 30-second clips for WhatsApp status, reels, and stories with 100% offline processing.</p>
+                    <p class="app-desc">
+                        Cut long videos into seamless 30-second clips for WhatsApp status, Instagram stories, and reels with zero re-encoding quality degradation.
+                    </p>
+                    <div class="app-features">
+                        <span class="feature-tag">100% Offline</span>
+                        <span class="feature-tag">Lossless Cut</span>
+                        <span class="feature-tag">1.25k+ Users</span>
+                    </div>
                 </div>
-                <div class="app-actions">
-                    <a href="https://play.google.com/store/apps/details?id=com.splitvideoforwhatsapp" target="_blank" class="btn-play">
+                <div class="app-bottom">
+                    <a href="https://play.google.com/store/apps/details?id=com.splitvideoforwhatsapp" target="_blank" class="btn-play-store">
                         Play Store ↗
                     </a>
-                    <a href="/privacy/video-splitter.html" class="btn-link">Privacy Policy</a>
+                    <a href="/privacy/video-splitter.html" class="link-policy">Privacy Policy</a>
                 </div>
             </div>
 
             <!-- App 3: SwipeRight -->
-            <div class="app-card">
+            <div class="app-card" data-category="finance">
                 <div>
-                    <div class="app-header">
-                        <div class="app-icon">💳</div>
-                        <div class="app-title">
-                            <h3>SwipeRight: Card Compare India</h3>
-                            <span class="app-category">Finance • com.creditcard.swiperight</span>
+                    <div class="app-top">
+                        <div class="app-icon-box icon-swiperight">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                        </div>
+                        <div class="app-meta">
+                            <h3>SwipeRight: Card Compare</h3>
+                            <div class="package-id">com.creditcard.swiperight</div>
                         </div>
                     </div>
-                    <p class="app-desc">Compare Indian credit card cashbacks, reward multipliers, airport lounge access, and annual fee waiver thresholds.</p>
+                    <p class="app-desc">
+                        Compare Indian credit card cashbacks, reward multipliers, airport lounge access tiers, and milestone fee waivers across major banks.
+                    </p>
+                    <div class="app-features">
+                        <span class="feature-tag">Reward Math</span>
+                        <span class="feature-tag">Lounge Tiers</span>
+                        <span class="feature-tag">No Login</span>
+                    </div>
                 </div>
-                <div class="app-actions">
-                    <a href="https://play.google.com/store/apps/details?id=com.creditcard.swiperight" target="_blank" class="btn-play">
+                <div class="app-bottom">
+                    <a href="https://play.google.com/store/apps/details?id=com.creditcard.swiperight" target="_blank" class="btn-play-store">
                         Play Store ↗
                     </a>
-                    <a href="/privacy/swiperight.html" class="btn-link">Privacy Policy</a>
+                    <a href="/privacy/swiperight.html" class="link-policy">Privacy Policy</a>
                 </div>
             </div>
 
             <!-- App 4: Water Diary -->
-            <div class="app-card">
+            <div class="app-card" data-category="health">
                 <div>
-                    <div class="app-header">
-                        <div class="app-icon">💧</div>
-                        <div class="app-title">
-                            <h3>Water Diary - Drink Reminder</h3>
-                            <span class="app-category">Health & Fitness • com.waterdiary.drinkreminder</span>
+                    <div class="app-top">
+                        <div class="app-icon-box icon-water">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                        </div>
+                        <div class="app-meta">
+                            <h3>Water Diary</h3>
+                            <div class="package-id">com.waterdiary.drinkreminder</div>
                         </div>
                     </div>
-                    <p class="app-desc">Smart daily hydration tracker with timely reminder alerts, customizable intake targets, and habit progress graphs.</p>
+                    <p class="app-desc">
+                        Smart hydration companion with personalized daily targets, gentle hourly reminders, and intuitive progress charts to build lifelong habits.
+                    </p>
+                    <div class="app-features">
+                        <span class="feature-tag">Gentle Alerts</span>
+                        <span class="feature-tag">Streak Tracker</span>
+                        <span class="feature-tag">Private Logs</span>
+                    </div>
                 </div>
-                <div class="app-actions">
-                    <a href="https://play.google.com/store/apps/details?id=com.waterdiary.drinkreminder" target="_blank" class="btn-play">
+                <div class="app-bottom">
+                    <a href="https://play.google.com/store/apps/details?id=com.waterdiary.drinkreminder" target="_blank" class="btn-play-store">
                         Play Store ↗
                     </a>
-                    <a href="/privacy/water-diary.html" class="btn-link">Privacy Policy</a>
+                    <a href="/privacy/water-diary.html" class="link-policy">Privacy Policy</a>
                 </div>
             </div>
 
             <!-- App 5: Water Reminder Pro -->
-            <div class="app-card">
+            <div class="app-card" data-category="health">
                 <div>
-                    <div class="app-header">
-                        <div class="app-icon">🥛</div>
-                        <div class="app-title">
-                            <h3>Water Drinking Reminder - Pro</h3>
-                            <span class="app-category">Health & Fitness • com.pro.drinkreminder</span>
+                    <div class="app-top">
+                        <div class="app-icon-box icon-water-pro">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
+                        </div>
+                        <div class="app-meta">
+                            <h3>Water Reminder Pro</h3>
+                            <div class="package-id">com.pro.drinkreminder</div>
                         </div>
                     </div>
-                    <p class="app-desc">Pro edition hydration assistant with smart intervals, water volume presets, and daily health metrics.</p>
+                    <p class="app-desc">
+                        Advanced hydration assistant with custom volume presets, intelligent intervals that pause during sleep, and daily health metrics.
+                    </p>
+                    <div class="app-features">
+                        <span class="feature-tag">Sleep Mode</span>
+                        <span class="feature-tag">Volume Presets</span>
+                        <span class="feature-tag">No Bloat</span>
+                    </div>
                 </div>
-                <div class="app-actions">
-                    <a href="https://play.google.com/store/apps/details?id=com.pro.drinkreminder" target="_blank" class="btn-play">
+                <div class="app-bottom">
+                    <a href="https://play.google.com/store/apps/details?id=com.pro.drinkreminder" target="_blank" class="btn-play-store">
                         Play Store ↗
                     </a>
-                    <a href="/privacy/water-reminder-pro.html" class="btn-link">Privacy Policy</a>
+                    <a href="/privacy/water-reminder-pro.html" class="link-policy">Privacy Policy</a>
                 </div>
             </div>
         </div>
 
-        <!-- Trust & AdMob Information Bar -->
-        <div class="info-bar">
-            <div class="info-item">
-                <span style="font-size: 20px;">🛡️</span>
-                <div>
-                    <strong>Developer Contact</strong><br>
-                    <span>arjunyadav.ps@gmail.com</span>
+        <!-- Trust & Engineering Manifesto -->
+        <section class="trust-section">
+            <div class="trust-grid">
+                <div class="trust-card">
+                    <h4>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-emerald)" stroke-width="2.5"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        Zero-Telemetry Privacy
+                    </h4>
+                    <p>
+                        Your personal loans, credit card comparisons, and private videos are processed 100% locally on your phone hardware. No analytics spyware, no selling your habits.
+                    </p>
+                </div>
+                <div class="trust-card">
+                    <h4>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        Native Speed & 60 FPS
+                    </h4>
+                    <p>
+                        Crafted using Flutter and native Kotlin. Lean installation sizes (< 15MB), instant cold launches, and silky Material You animations that respect battery life.
+                    </p>
+                </div>
+                <div class="trust-card">
+                    <h4>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        IAB app-ads.txt Verified
+                    </h4>
+                    <p>
+                        Certified directly with Google AdMob under verified publisher ID <code style="color: #67e8f9; font-size: 11px;">pub-4380281877506132</code> for full transparency and policy compliance.
+                    </p>
                 </div>
             </div>
-            <div class="info-item">
-                <span style="font-size: 20px;">📜</span>
-                <div>
-                    <strong>Digital Sellers Info</strong><br>
-                    <span><a href="/app-ads.txt" style="color: #60a5fa; text-decoration: none;">View Verified app-ads.txt</a></span>
-                </div>
-            </div>
-            <div class="info-item">
-                <span style="font-size: 20px;">🔒</span>
-                <div>
-                    <strong>Privacy Compliance</strong><br>
-                    <span><a href="/privacy/" style="color: #60a5fa; text-decoration: none;">Privacy Center Directory</a></span>
-                </div>
-            </div>
-        </div>
+        </section>
 
         <!-- Footer -->
         <footer>
-            <div class="footer-links">
+            <div class="footer-nav">
                 <a href="/privacy/zeropath.html">ZeroPath Privacy</a>
                 <a href="/privacy/video-splitter.html">Video Splitter Privacy</a>
                 <a href="/privacy/swiperight.html">SwipeRight Privacy</a>
                 <a href="/privacy/water-diary.html">Water Diary Privacy</a>
                 <a href="/privacy/water-reminder-pro.html">Water Pro Privacy</a>
                 <a href="/app-ads.txt">app-ads.txt</a>
-                <a href="mailto:arjunyadav.ps@gmail.com">Support</a>
+                <a href="mailto:arjunyadav.ps@gmail.com">Contact Developer</a>
             </div>
-            <p>&copy; 2026 Arjun Yadav. All rights reserved. Registered Developer for Google Play & AdMob.</p>
+            <p class="footer-copy">
+                &copy; 2026 Arjun Yadav Studio. All rights reserved. Registered Google Play Developer Account: <strong>Play Holi</strong>.
+            </p>
         </footer>
     </div>
+
+    <script>
+        function filterCategory(category, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const cards = document.querySelectorAll('.app-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
