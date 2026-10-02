@@ -1,4 +1,2 @@
-# app-ads.txt for Arjun Yadav (Android Developer)
-# Authorized Digital Sellers for Google AdMob & Google Play Apps
 google.com, pub-4380281877506132, DIRECT, f08c47fec0942fa0
 google.com, pub-1502582508981589, DIRECT, f08c47fec0942fa0

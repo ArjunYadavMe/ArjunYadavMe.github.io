@@ -6,6 +6,19 @@ Allow: /app-ads.txt
 Disallow: /config/
 Disallow: /*.json$
 
+# Google AdMob & AdSense Crawlers
+User-agent: Mediapartners-Google
+Allow: /app-ads.txt
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /app-ads.txt
+Allow: /
+
+User-agent: Googlebot
+Allow: /app-ads.txt
+Allow: /
+
 # Block AI and aggressive data harvesting bots from reconnaissance
 User-agent: GPTBot
 Disallow: /config/
@@ -20,7 +33,4 @@ User-agent: anthropic-ai
 Disallow: /config/
 
 User-agent: CCBot
-Disallow: /config/
-
-User-agent: Google-Extended
 Disallow: /config/
