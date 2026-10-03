@@ -5,7 +5,7 @@
   "last_updated": "2026-10-03",
   "ads": {
     "enabled": true,
-    "test_mode": true,
+    "test_mode": false,
     "app_id": "ca-app-pub-4380281877506132~2341635958",
     "rewarded_ad_id": "ca-app-pub-4380281877506132/9837906032",
     "interstitial_ad_id": "ca-app-pub-4380281877506132/6987457975",
