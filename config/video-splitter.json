@@ -1,8 +1,8 @@
 {
   "app_id": "com.splitvideoforwhatsapp",
   "app_name": "Auto Video Splitter for Status",
-  "version": 21,
-  "last_updated": "2026-10-02",
+  "version": 23,
+  "last_updated": "2026-10-03",
   "ads": {
     "enabled": true,
     "test_mode": false,
@@ -17,7 +17,7 @@
   },
   "version_control": {
     "min_version_code": 1,
-    "latest_version_code": 21,
+    "latest_version_code": 23,
     "force_update": false,
     "update_title": "Update Available",
     "update_message": "A new version of Auto Video Splitter is available on Google Play with enhanced performance and stability.",
