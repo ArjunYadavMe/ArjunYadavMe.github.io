@@ -1,0 +1,39 @@
+[
+  {
+    "asset": "zeropath-1.png",
+    "source": "https://play-lh.googleusercontent.com/GYJW1c_qhWayKk9lCBNtwoVh0IBOelHJJDlsNa6jVGLWLI9o9B6ZEC8IvSbc8LZK3JvEgGZWVbSUdHIe-FJe3rw=w1052-h592",
+    "bytes": 64618
+  },
+  {
+    "asset": "zeropath-2.png",
+    "source": "https://play-lh.googleusercontent.com/43d3Ltd6pBanvidjGrONV3TRClW1FY_UYMvD8mJuvLMNhAZwArGPQdcgvgsF0ae3BbmHYNcYiIACiKT0sp4zFg=w1052-h592",
+    "bytes": 49750
+  },
+  {
+    "asset": "splitter-1.png",
+    "source": "https://play-lh.googleusercontent.com/U4GHKjVejbPkmNy0NiWxDECbQDBN3nrTxlxzTGZXx4Ug_bP-VbewSLJSgETai7o_6kIfSIfT_6iwC_HGp2uyEA=w1052-h592",
+    "bytes": 82680
+  },
+  {
+    "asset": "splitter-2.png",
+    "source": "https://play-lh.googleusercontent.com/jMxHMnUE5sKUlC9QkklBoNWw4rFaYhhuPbeRxr3XdNcDKZq6BsaIuFYmVDveCBDs0Q7Mu5RxHas05YL9svY=w1052-h592",
+    "bytes": 74549
+  },
+  {
+    "asset": "gstwali-live.jpg",
+    "source": "https://gstwali.in/",
+    "type": "Browser screenshot captured 20 October 2026"
+  },
+  {
+    "asset": "quicklabel-live.jpg",
+    "source": "https://quicklabelcrop.com/",
+    "type": "Browser screenshot captured 20 October 2026"
+  },
+  {
+    "asset": "nursery-photo.jpg",
+    "source": "https://unsplash.com/photos/a-greenhouse-filled-with-lots-of-green-plants-WVBgUr7kJaU",
+    "photographer": "uma dantara",
+    "license": "https://unsplash.com/license",
+    "usage": "Stock image for clearly labelled Google profile demonstration. Not a client location."
+  }
+]
