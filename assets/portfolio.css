@@ -924,3 +924,30 @@ a, button, summary { -webkit-tap-highlight-color: transparent; }
 .real-caption { opacity: 1; }
 .listing-actions > span > svg { flex-shrink: 0; height: 20px; }
 @media (prefers-contrast: more) { :root { --muted: #3d4b38; --line: #87957c; } .tags span { color: #3d4b38; border-color: #87957c; } }
+/* Actual Green Vatika listing, separated from the proposed review work. */
+.nursery-feature-grid { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,1fr); gap: 38px; align-items: start; }
+.nursery-live-card { border: 1px solid #c7d2bc; border-radius: 10px; overflow: hidden; background: #fffef9; }
+.nursery-map { position: relative; background: #e6ecdf; }
+.nursery-map iframe { display: block; width: 100%; height: 330px; border: 0; }
+.map-direct-link { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 14px 20px; background: #e9efdf; border-bottom: 1px solid #c7d2bc; font-size: 13px; min-height: 48px; }
+.map-direct-link:hover { background: #dde8cf; }
+.nursery-business-details { padding: 26px; }
+.nursery-business-details h3 { font-size: 29px; line-height: 1.25; margin: 10px 0 14px; }
+.nursery-business-details > p { font-size: 15px; line-height: 1.85; color: var(--muted); }
+.nursery-business-details > .nursery-location-source { font-size: 11px; margin-top: 8px; }
+.nursery-business-links { display: flex; flex-wrap: wrap; gap: 8px 25px; margin-top: 18px; }
+.nursery-business-links .text-link { font-size: 13px; }
+.nursery-plan { padding: 4px 0; }
+.nursery-plan > h3 { font-size: clamp(27px,2.7vw,36px); line-height: 1.2; margin: 18px 0 16px; }
+.nursery-plan-intro { font-size: 13px; line-height: 1.85; color: var(--muted); }
+.nursery-review-list { padding: 0; margin: 22px 0; list-style: none; border-top: 1px solid var(--line); }
+.nursery-review-list li { display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.nursery-review-list li > span { color: #a04d2f; font-size: 11px; flex-shrink: 0; padding-top: 3px; }
+.nursery-review-list h4 { margin: 0 0 5px; font-size: 15px; font-weight: 600; line-height: 1.6; }
+.nursery-review-list p { color: var(--muted); font-size: 14px; line-height: 1.85; }
+.nursery-plan > .service-hindi { margin: 0 0 20px; }
+.nursery-plan .button { font-size: 13px; }
+.google-example .section-heading { gap: 32px; }
+.google-example .section-heading h2 { max-width: 650px; }
+@media (min-width:701px) and (max-width:1000px) { .nursery-feature-grid { gap: 25px; grid-template-columns: 1fr 1fr; } .nursery-map iframe { height: 290px; } .nursery-business-details { padding: 22px; } .nursery-business-details h3 { font-size: 25px; } .google-example .section-heading h2 { font-size: 36px; } }
+@media (max-width:700px) { .nursery-feature-grid { grid-template-columns: 1fr; gap: 32px; } .nursery-map iframe { height: 290px; } .nursery-business-details { padding: 23px; } .nursery-business-details h3 { font-size: 28px; } .map-direct-link { font-size: 12px; padding: 13px 17px; } .nursery-plan > h3 { font-size: 31px; } .nursery-review-list p { font-size: 15px; } .nursery-review-list h4 { font-size: 16px; } .nursery-plan-intro { font-size: 14px; } .google-example .section-heading h2 { font-size: 36px; } }
