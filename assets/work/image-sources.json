@@ -2,7 +2,8 @@
   {
     "asset": "zeropath-1.png",
     "source": "https://play-lh.googleusercontent.com/GYJW1c_qhWayKk9lCBNtwoVh0IBOelHJJDlsNa6jVGLWLI9o9B6ZEC8IvSbc8LZK3JvEgGZWVbSUdHIe-FJe3rw=w1052-h592",
-    "bytes": 64618
+    "bytes": 64618,
+    "delivery_asset": "zeropath-1.webp"
   },
   {
     "asset": "zeropath-2.png",
@@ -12,7 +13,8 @@
   {
     "asset": "splitter-1.png",
     "source": "https://play-lh.googleusercontent.com/U4GHKjVejbPkmNy0NiWxDECbQDBN3nrTxlxzTGZXx4Ug_bP-VbewSLJSgETai7o_6kIfSIfT_6iwC_HGp2uyEA=w1052-h592",
-    "bytes": 82680
+    "bytes": 82680,
+    "delivery_asset": "splitter-1.webp"
   },
   {
     "asset": "splitter-2.png",
@@ -22,18 +24,21 @@
   {
     "asset": "gstwali-live.jpg",
     "source": "https://gstwali.in/",
-    "type": "Browser screenshot captured 20 October 2026"
+    "type": "Browser screenshot captured 20 October 2026",
+    "delivery_asset": "gstwali-live.webp"
   },
   {
     "asset": "quicklabel-live.jpg",
     "source": "https://quicklabelcrop.com/",
-    "type": "Browser screenshot captured 20 October 2026"
+    "type": "Browser screenshot captured 20 October 2026",
+    "delivery_asset": "quicklabel-live.webp"
   },
   {
     "asset": "nursery-photo.jpg",
     "source": "https://unsplash.com/photos/a-greenhouse-filled-with-lots-of-green-plants-WVBgUr7kJaU",
     "photographer": "uma dantara",
     "license": "https://unsplash.com/license",
-    "usage": "Stock image for clearly labelled Google profile demonstration. Not a client location."
+    "usage": "Stock image for clearly labelled Google profile demonstration. Not a client location.",
+    "delivery_asset": "nursery-photo.webp"
   }
 ]

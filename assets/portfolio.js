@@ -1,6 +1,13 @@
 'use strict';
 const menuToggle = document.querySelector('.menu-toggle');
 const mobileNav = document.getElementById('mobile-nav');
+const desktopLayout = window.matchMedia('(min-width: 701px)');
+function closeMenu() {
+  mobileNav.hidden = true;
+  menuToggle.setAttribute('aria-expanded', 'false');
+  menuToggle.setAttribute('aria-label', 'Open navigation');
+}
+desktopLayout.addEventListener('change', event => { if (event.matches) closeMenu(); });
 menuToggle.addEventListener('click', () => {
   const open = menuToggle.getAttribute('aria-expanded') !== 'true';
   menuToggle.setAttribute('aria-expanded', String(open));
@@ -8,9 +15,7 @@ menuToggle.addEventListener('click', () => {
   mobileNav.hidden = !open;
 });
 mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-  mobileNav.hidden = true;
-  menuToggle.setAttribute('aria-expanded', 'false');
-  menuToggle.setAttribute('aria-label', 'Open navigation');
+  closeMenu();
 }));
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && !mobileNav.hidden) {
@@ -37,8 +42,10 @@ const projectNotes = {
   zeropath: { title: 'ZeroPath', category: 'PUBLISHED ANDROID APPLICATION', description: 'A personal finance utility for tracking loans and EMIs, viewing repayment schedules, setting reminders and exploring prepayment scenarios.', learning: 'Helps users view loans, upcoming EMIs and repayment calculations in one app. It is a planning tool, not personalised financial advice.', url: 'https://play.google.com/store/apps/details?id=com.arjunyadav.zeropath' }
 };
 const dialog = document.getElementById('project-dialog');
+let dialogTrigger = null;
 document.querySelectorAll('[data-project]').forEach(button => button.addEventListener('click', () => {
   const project = projectNotes[button.dataset.project];
+  dialogTrigger = button;
   document.getElementById('dialog-category').textContent = project.category;
   document.getElementById('dialog-title').textContent = project.title;
   document.getElementById('dialog-description').textContent = project.description;
@@ -46,10 +53,15 @@ document.querySelectorAll('[data-project]').forEach(button => button.addEventLis
   document.getElementById('dialog-link').href = project.url;
   dialog.showModal();
 }));
+dialog.addEventListener('close', () => {
+  if (dialogTrigger && document.contains(dialogTrigger)) dialogTrigger.focus({ preventScroll: true });
+});
 document.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
 dialog.addEventListener('click', event => { if (event.target === dialog) { const box = dialog.getBoundingClientRect(); if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) dialog.close(); } });
 const form = document.getElementById('project-form');
 let preparedBrief = '';
+form.addEventListener('input', () => { document.getElementById('enquiry-result').hidden = true; });
+form.addEventListener('change', () => { document.getElementById('enquiry-result').hidden = true; });
 form.addEventListener('submit', event => {
   event.preventDefault();
   if (!form.reportValidity()) return;
@@ -66,13 +78,14 @@ form.addEventListener('submit', event => {
     return;
   }
   preparedBrief = `Namaste Arjun, my name is ${name}.\n${business ? `Business: ${business}\n` : ''}I need help with: ${service}.${message ? `\n\n${message}` : ''}`;
-  const whatsapp = `https://wa.me/918581955657?text=${encodeURIComponent(preparedBrief)}`;
+  const whatsapp = `https://wa.me/918581955657?${new URLSearchParams({ text: preparedBrief })}`;
   document.getElementById('open-whatsapp').href = whatsapp;
   document.getElementById('brief-fallback').value = preparedBrief;
   document.getElementById('enquiry-result').hidden = false;
   document.getElementById('copy-status').textContent = '';
   document.getElementById('brief-fallback').hidden = true;
   document.getElementById('copy-brief').textContent = 'Copy message ⧉';
+  document.getElementById('open-whatsapp').focus({ preventScroll: true });
   window.open(whatsapp, '_blank', 'noopener,noreferrer');
 });
 document.getElementById('copy-brief').addEventListener('click', async () => {
@@ -90,3 +103,10 @@ document.getElementById('copy-brief').addEventListener('click', async () => {
   }
 });
 document.getElementById('year').textContent = String(new Date().getFullYear());
+
+// Reveal enhanced controls only after their handlers are ready. Direct contact always works.
+form.hidden = false;
+document.querySelector('.filters').hidden = false;
+if (typeof dialog.showModal === 'function') {
+  document.querySelectorAll('[data-project]').forEach(button => { button.hidden = false; });
+}

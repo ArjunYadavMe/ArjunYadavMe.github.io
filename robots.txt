@@ -34,3 +34,5 @@ Disallow: /config/
 
 User-agent: CCBot
 Disallow: /config/
+
+Sitemap: https://arjunyadav.com/sitemap.xml
