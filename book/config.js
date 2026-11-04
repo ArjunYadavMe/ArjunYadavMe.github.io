@@ -5,6 +5,7 @@ window.BOOK_CONFIG = {
   productDescription: "84-Page Ebook + 8 Reusable Worksheets + Quickstart Guide",
   supportEmail: 'arjunyadav.ps@gmail.com',
   razorpayKeyId: 'rzp_live_SQONBdALpkNyow',
+  metaPixelId: '1001514732433335',
   apiBase: 'https://us-central1-gstr1-generator-ay.cloudfunctions.net',
   thankYouUrl: '/book/thank-you/'
 };

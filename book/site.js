@@ -89,30 +89,44 @@
     const checkoutBtn = document.getElementById('checkout-submit-btn');
     const containerBox = document.getElementById('checkout-container');
 
-    const name = (nameInput?.value || '').trim();
+    let name = (nameInput?.value || '').trim();
     const email = (emailInput?.value || '').trim();
     let phone = (phoneInput?.value || '').trim();
 
-    if (!name) {
-      alert('Please enter your full name for digital delivery.');
-      nameInput?.focus();
-      return false;
-    }
-
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      alert('Please enter a valid email address for digital delivery.');
+      alert('Please enter a valid email address for instant digital delivery.');
       emailInput?.focus();
       return false;
     }
 
-    phone = phone.replace(/[^0-9+]/g, '');
-    if (phone.length === 10) {
-      phone = '+91' + phone;
+    if (!name) {
+      name = email.split('@')[0] || 'Reader';
     }
-    if (phone.length < 10) {
-      alert('Please enter a valid 10-digit mobile number for Razorpay payment.');
-      phoneInput?.focus();
-      return false;
+
+    if (phone) {
+      phone = phone.replace(/[^0-9+]/g, '');
+      if (phone.length === 10) {
+        phone = '+91' + phone;
+      }
+    }
+
+    // Fire Meta Pixel Checkout Initiation
+    if (typeof window.fbq === 'function') {
+      try {
+        window.fbq('track', 'InitiateCheckout', {
+          content_name: "The Working Man's Code",
+          content_category: 'Ebook',
+          value: 299,
+          currency: 'INR'
+        });
+        window.fbq('track', 'Lead', {
+          content_name: "The Working Man's Code",
+          value: 299,
+          currency: 'INR'
+        });
+      } catch (fbErr) {
+        console.warn('Meta Pixel tracking error:', fbErr);
+      }
     }
 
     const originalBtnText = checkoutBtn ? checkoutBtn.innerHTML : 'Get the complete pack';

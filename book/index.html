@@ -11,17 +11,43 @@
   <meta property="og:image" content="https://arjunyadav.com/book/assets/og.png">
   <meta property="og:url" content="https://arjunyadav.com/book/">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
+  <script src="config.js?v=5"></script>
   <script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
-  <script src="config.js?v=4"></script>
-  <script src="site.js?v=4"></script>
+  <script src="site.js?v=5"></script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', window.BOOK_CONFIG && window.BOOK_CONFIG.metaPixelId ? window.BOOK_CONFIG.metaPixelId : '1001514732433335');
+    fbq('track', 'PageView');
+    fbq('track', 'ViewContent', {
+      content_name: "The Working Man's Code",
+      content_category: 'Ebook',
+      value: 299,
+      currency: 'INR'
+    });
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1001514732433335&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
 <header class="nav">
   <a class="brand" href="./">THE WORKING MAN’S CODE</a>
   <nav aria-label="Main navigation">
-    <a href="#inside">Inside the book</a>
-    <a href="#questions">Questions</a>
+    <a href="#inside">Inside</a>
+    <a href="#look-inside">Sample Pages</a>
+    <a href="#author">Author</a>
+    <a href="#questions">FAQ</a>
     <button type="button" class="nav-cta" onclick="focusPaymentBox()">Get the Complete Pack · <span data-price>₹299</span></button>
   </nav>
 </header>
@@ -32,9 +58,15 @@
     <div class="hero-showcase">
       <!-- LEFT: Headline, Subtitle, Book & Pack Highlights -->
       <div class="hero-left">
-        <p class="eyebrow">100 RULES / ONE PERSONAL CODE</p>
-        <h1>Give good intentions<br> a place in an ordinary week.</h1>
-        <p class="lead">A practical guide to focus, follow-through and everyday responsibility. Read the rule, see an example, then choose an action.</p>
+        <p class="eyebrow">100 RULES / ONE PERSONAL CODE · 30-DAY PROGRAMME</p>
+        <h1>A 30-day practical system for men who want more discipline, focus and follow-through.</h1>
+        <p class="lead">Give good intentions a place in an ordinary week. Read the rule, see the real-life example, then choose an action you can actually finish today.</p>
+
+        <div class="hero-sample-row">
+          <a href="sample-pages.pdf" target="_blank" class="btn-sample-hero">
+            📖 Read 10 free sample pages
+          </a>
+        </div>
 
         <div class="book-row">
           <div class="book-stage">
@@ -81,22 +113,20 @@
 
         <div class="payment-card-body" id="checkout-container">
           <h2 class="payment-form-heading">Get the complete pack</h2>
-          <p class="payment-form-sub">Enter your details for instant digital delivery:</p>
+          <p class="payment-form-sub">Enter your email for instant digital delivery:</p>
 
           <form id="checkout-form" action="javascript:void(0);" onsubmit="handlePaymentSubmit(event); return false;">
             <div class="form-group">
-              <label for="cust-name">Your Full Name</label>
-              <input type="text" id="cust-name" required placeholder="e.g. Rahul Sharma" autocomplete="name">
-            </div>
-
-            <div class="form-group">
-              <label for="cust-email">Email Address</label>
+              <label for="cust-email">Email Address (Where to send your ebook)</label>
               <input type="email" id="cust-email" required placeholder="you@example.com" autocomplete="email">
+              <span class="form-hint">⚡ Instant download access + backup receipt will be sent here.</span>
             </div>
 
-            <div class="form-group">
-              <label for="cust-phone">WhatsApp / Mobile Number</label>
-              <input type="tel" id="cust-phone" required placeholder="10-digit mobile number" autocomplete="tel">
+            <div class="form-optional-group">
+              <div class="form-row-compact">
+                <input type="text" id="cust-name" placeholder="Full name (optional)" autocomplete="name">
+                <input type="tel" id="cust-phone" placeholder="WhatsApp / Mobile (optional)" autocomplete="tel">
+              </div>
             </div>
 
             <button type="button" id="checkout-submit-btn" class="checkout-btn" onclick="handlePaymentSubmit(event)">
@@ -142,6 +172,96 @@
     </div>
   </section>
 
+  <!-- Worked Example Section -->
+  <section class="example">
+    <div class="wrap section example-grid">
+      <div>
+        <p class="eyebrow">ONE WORKED EXAMPLE</p>
+        <h2>Make one promise<br> observable.</h2>
+        <p>A standard becomes easier to practise when it names a cue, a minimum action and a finish line. This is how every rule in the book translates into real-life behavior.</p>
+        <dl class="example-list">
+          <div><dt>Cue</dt><dd>After evening tea.</dd></div>
+          <div><dt>Minimum action</dt><dd>15 minutes on one chosen task.</dd></div>
+          <div><dt>Evidence</dt><dd>One paragraph completed.</dd></div>
+        </dl>
+      </div>
+      <div class="worksheet-preview-box">
+        <img src="assets/worksheet.png" width="700" height="1000" alt="Worksheet with fields for attention, care and responsibility" loading="lazy">
+        <div class="worksheet-caption">Worksheet 02: Make three standards observable</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 Actual Ebook-Page Previews -->
+  <section id="look-inside" class="book-pages-preview wrap section">
+    <div class="text-center">
+      <p class="eyebrow">LOOK INSIDE THE BOOK</p>
+      <h2>Clear, disciplined rules.<br> Zero fluff or filler.</h2>
+      <p>Every page pairs a foundational principle with a concrete daily scenario and an actionable assignment.</p>
+    </div>
+
+    <div class="pages-preview-grid">
+      <div class="page-preview-card">
+        <div class="page-preview-img">
+          <img src="assets/preview-page-1.png" alt="Rule 001: Give your day a first priority" loading="lazy">
+        </div>
+        <div class="page-preview-info">
+          <span class="page-badge">Page 07 · Chapter 01: Attention</span>
+          <h3>Rule 001: Give your day a first priority</h3>
+          <p>Before opening anyone else's requests, decide which outcome makes today useful.</p>
+        </div>
+      </div>
+
+      <div class="page-preview-card">
+        <div class="page-preview-img">
+          <img src="assets/preview-page-2.png" alt="Rule 011: Promise at the speed of evidence" loading="lazy">
+        </div>
+        <div class="page-preview-info">
+          <span class="page-badge">Page 13 · Chapter 02: Reliability</span>
+          <h3>Rule 011: Promise at the speed of evidence</h3>
+          <p>Agreement feels generous now and careless later. Test feasibility before you commit.</p>
+        </div>
+      </div>
+
+      <div class="page-preview-card">
+        <div class="page-preview-img">
+          <img src="assets/preview-page-3.png" alt="Rule 031: Name the feeling before the accusation" loading="lazy">
+        </div>
+        <div class="page-preview-info">
+          <span class="page-badge">Page 25 · Chapter 04: Emotional Steadiness</span>
+          <h3>Rule 031: Name feeling before accusation</h3>
+          <p>Stop turning interpretations into facts. Name what you feel before blaming others.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sample-pages-cta">
+      <a href="sample-pages.pdf" target="_blank" class="sample-download-btn">
+        📖 Read all 10 free sample pages (PDF) →
+      </a>
+    </div>
+  </section>
+
+  <!-- Author Block -->
+  <section id="author" class="author-section wrap section">
+    <div class="author-card">
+      <div class="author-photo-wrapper">
+        <img src="assets/arjun-yadav.jpg" width="160" height="160" alt="Arjun Yadav - Author of The Working Man’s Code" class="author-photo">
+      </div>
+      <div class="author-text">
+        <p class="eyebrow">ABOUT THE AUTHOR</p>
+        <blockquote class="author-quote">
+          “I’m Arjun Yadav. I made this for men who are tired of collecting advice but struggling to follow through.”
+        </blockquote>
+        <p class="author-bio">
+          Most productivity advice is hundreds of pages of abstract theory that get forgotten within a week. I built <em>The Working Man’s Code</em> as an operational field manual: 100 practical rules, zero fluff, and 8 structured worksheets designed to give your good intentions an unshakeable place on your calendar.
+        </p>
+        <div class="author-meta">
+          <strong>Arjun Yadav</strong> · Software Engineer, Creator & Publisher · <a href="mailto:arjunyadav.ps@gmail.com">arjunyadav.ps@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Bottom Practice Pack Overview & Guarantee -->
   <section id="pack" class="pack">

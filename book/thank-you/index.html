@@ -6,7 +6,25 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Payment Confirmed — Download The Working Man’s Code</title>
   <link rel="stylesheet" href="../styles.css">
-  <script src="../config.js" defer></script>
+  <script src="../config.js"></script>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', window.BOOK_CONFIG && window.BOOK_CONFIG.metaPixelId ? window.BOOK_CONFIG.metaPixelId : '1001514732433335');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1001514732433335&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
 <header class="nav">
@@ -201,6 +219,21 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Populate immediate order elements
   document.getElementById('display-order-id').textContent = orderId;
+
+  // Fire Meta Pixel Purchase Event (once per session to avoid duplicate counts)
+  if (typeof window.fbq === 'function') {
+    const purchaseTrackedKey = 'meta_purchase_tracked_' + orderId;
+    if (!sessionStorage.getItem(purchaseTrackedKey)) {
+      window.fbq('track', 'Purchase', {
+        value: 299,
+        currency: 'INR',
+        content_name: "The Working Man's Code",
+        content_type: 'product',
+        order_id: orderId
+      });
+      sessionStorage.setItem(purchaseTrackedKey, 'true');
+    }
+  }
 
   // Build download URLs
   const makeDownloadUrl = (fileType) => {
