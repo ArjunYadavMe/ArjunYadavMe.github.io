@@ -85,14 +85,6 @@ h3{font-size:16px;margin:0 0 4px}
 .steps li{display:flex;gap:20px;border-top:1px solid var(--line);padding:16px 0}
 .steps span{color:var(--red);font-size:13px;font-weight:700}
 .steps p{font-size:14px;margin:0}
-.example{background:var(--pale)}
-.example-grid{display:grid;grid-template-columns:1fr 1fr;gap:10%;align-items:center}
-.example-grid>img{width:100%;max-width:340px;margin:auto;display:block;box-shadow:0 12px 28px rgba(22,22,22,0.08);border:1px solid var(--line)}
-.example-list{margin-top:24px}
-.example-list>div{display:grid;grid-template-columns:110px 1fr;border-top:1px solid #cdcbc3;padding:10px 0;gap:14px}
-.example-list dt{font-size:12px;font-weight:bold;color:var(--red)}
-.example-list dd{margin:0;font-size:14px}
-
 /* Bottom Pack Summary Card */
 .pack{background:var(--ink);color:var(--paper)}
 .pack-grid{display:grid;grid-template-columns:1fr 1fr;gap:8%;align-items:center}
@@ -171,7 +163,7 @@ details p{max-width:720px;color:var(--muted);font-size:14px;line-height:1.6}
   .book-stage{max-width:120px}
   .stats{grid-template-columns:1fr;gap:14px;padding:18px 0}
   .stats strong{font-size:30px}
-  .editorial-grid,.example-grid,.pack-grid{grid-template-columns:1fr;gap:26px}
+  .editorial-grid,.pack-grid{grid-template-columns:1fr;gap:26px}
   .section{padding-block:40px}
   .footer{display:block}
   .footer nav{margin-top:16px}
