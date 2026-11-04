@@ -125,7 +125,7 @@ h3{font-size:16px;margin:0 0 4px}
 
 /* Author Section */
 .author-section{padding-top:60px;padding-bottom:60px;border-top:1px solid var(--line)}
-.author-card{display:grid;grid-template-columns:180px 1fr;gap:36px;align-items:center;background:#ffffff;border:1px solid var(--line);padding:36px;border-radius:2px;box-shadow:0 4px 16px rgba(0,0,0,0.03)}
+.author-card{display:grid;grid-template-columns:180px 1fr;gap:36px;align-items:flex-start;background:#ffffff;border:1px solid var(--line);padding:36px;border-radius:2px;box-shadow:0 4px 16px rgba(0,0,0,0.03)}
 .author-photo-wrapper{text-align:center}
 .author-photo{width:150px;height:150px;border-radius:50%;object-fit:cover;border:3px solid var(--pale);box-shadow:0 6px 18px rgba(0,0,0,0.1);display:block;margin:0 auto}
 .author-quote{font:italic 20px/1.4 Georgia,serif;color:var(--ink);margin:0 0 14px;padding:0;border:none}
