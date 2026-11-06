@@ -5,8 +5,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <title>Payment Confirmed — Download The Working Man’s Code</title>
-  <link rel="stylesheet" href="../styles.css">
-  <script src="../config.js"></script>
+  <base href="/book/thank-you/">
+  <script>
+    if (window.location.pathname === '/book/thank-you') {
+      window.history.replaceState(null, '', '/book/thank-you/' + window.location.search + window.location.hash);
+    }
+  </script>
+  <link rel="stylesheet" href="/book/styles.css?v=6">
+  <script src="/book/config.js?v=6"></script>
 
   <!-- Meta Pixel Code -->
   <script>
@@ -28,9 +34,9 @@
 </head>
 <body>
 <header class="nav">
-  <a class="brand" href="../">THE WORKING MAN’S CODE</a>
+  <a class="brand" href="/book/">THE WORKING MAN’S CODE</a>
   <nav aria-label="Navigation">
-    <a href="../">Book Overview</a>
+    <a href="/book/">Book Overview</a>
     <a href="mailto:arjunyadav.ps@gmail.com">Help & Support</a>
   </nav>
 </header>
@@ -169,7 +175,7 @@
       If you just completed a payment, please check your email receipt for your order reference, or return to the book page to purchase.
     </p>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-      <a class="button" href="../">View The Working Man’s Code</a>
+      <a class="button" href="/book/">View The Working Man’s Code</a>
       <a class="button outline" href="mailto:arjunyadav.ps@gmail.com">Contact Support</a>
     </div>
   </div>
@@ -182,9 +188,9 @@
     <a href="mailto:arjunyadav.ps@gmail.com">arjunyadav.ps@gmail.com</a>
   </div>
   <nav aria-label="Legal navigation">
-    <a href="../privacy.html">Privacy</a>
-    <a href="../refunds.html">Refunds & delivery</a>
-    <a href="../terms.html">Terms</a>
+    <a href="/book/privacy.html">Privacy</a>
+    <a href="/book/refunds.html">Refunds & delivery</a>
+    <a href="/book/terms.html">Terms</a>
   </nav>
 </footer>
 
