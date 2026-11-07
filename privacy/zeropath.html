@@ -26,7 +26,7 @@
             max-width: 800px;
             margin: 0 auto;
             background: var(--card-bg);
-            padding: 48px;
+            padding: clamp(20px, 5vw, 48px);
             border-radius: 16px;
             border: 1px solid var(--border);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
@@ -57,68 +57,37 @@
         .highlight-box h3 { color: #166534; font-size: 16px; margin-bottom: 8px; }
         .highlight-box p { color: #15803d; margin: 0; font-size: 14px; }
         footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 14px; color: var(--text-muted); text-align: center; }
-        a { color: var(--primary); text-decoration: none; }
+        a { color: var(--primary); text-decoration: underline; }
         a:hover { text-decoration: underline; }
     </style>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "za02kx8dr6");
+  </script>
 </head>
 <body>
-    <div class="container">
-        <span class="badge">Official Privacy Policy</span>
-        <h1>ZeroPath: Loan & EMI Tracker</h1>
-        <div class="meta">
-            <span>Developer: Arjun Yadav</span> • <span>Package: com.arjunyadav.zeropath</span> • <span>Effective Date: January 1, 2026</span>
-        </div>
-
-        <div class="highlight-box">
-            <h3>🔒 Privacy First Commitment</h3>
-            <p>ZeroPath does NOT require registration, does NOT connect to your bank accounts, and does NOT sell or share your personal data with third-party advertisers. Your financial tracking data is saved locally on your device.</p>
-        </div>
-
-        <h2>1. Overview</h2>
-        <p>This Privacy Policy explains how ZeroPath ("we", "our", or "the app"), developed by Arjun Yadav, handles information when you use our mobile application. We are committed to protecting your personal privacy.</p>
-
-        <h2>2. Information We Handle</h2>
-        <p>ZeroPath is designed as an offline-first financial calculator and loan organizer:</p>
-        <ul>
-            <li><strong>Loan & EMI Data:</strong> Loan names, principal amounts, interest rates, tenure, EMI due dates, and prepayment records entered by you are stored securely in a local SQLite database on your device.</li>
-            <li><strong>Biometric Security:</strong> If you enable App Lock (fingerprint or face unlock), biometric authentication is handled solely by your Android operating system. We do not store or transmit biometric data.</li>
-            <li><strong>Optional Cloud Sync:</strong> If you explicitly sign in with Google to backup your portfolio, encrypted loan snapshots are stored in your secure private cloud database via Google Firebase. You can delete this data at any time.</li>
-        </ul>
-
-        <h2>3. What We Do NOT Collect</h2>
-        <ul>
-            <li>We do NOT request access to your banking credentials or net-banking passwords.</li>
-            <li>We do NOT read SMS messages or personal device files.</li>
-            <li>We do NOT sell, rent, or trade your financial figures with any third parties or credit bureaus.</li>
-        </ul>
-
-        <h2>4. Permissions Used</h2>
-        <ul>
-            <li><strong>POST_NOTIFICATIONS (Android 13+):</strong> Used solely to schedule local push alerts for upcoming EMI due dates.</li>
-            <li><strong>USE_BIOMETRIC:</strong> Used to unlock the app if you enable the optional biometric lock feature.</li>
-            <li><strong>INTERNET:</strong> Used to display Google AdMob advertisements and sync cloud backups if signed in.</li>
-        </ul>
-
-        <h2>5. Advertising & Third-Party SDKs</h2>
-        <p>The app integrates Google Mobile Ads (AdMob) to display non-intrusive banner or rewarded ads. Google AdMob may collect pseudonymous device identifiers (such as Android Advertising ID) in accordance with <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a> to serve relevant ads. You can opt out of personalized ads via your device's Android Settings (Settings ➔ Google ➔ Ads).</p>
-
-        <h2>6. Data Deletion & Retention</h2>
-        <p>Because your data is primarily stored locally on your device, you have complete control over it:</p>
-        <ul>
-            <li>You can clear all loans and history directly within App Settings ➔ "Clear All Data".</li>
-            <li>Uninstalling the application immediately deletes all local database records.</li>
-            <li>If you created a cloud backup, you can tap "Delete Account & Cloud Data" or email us to request full server data deletion.</li>
-        </ul>
-
-        <h2>7. Contact Information</h2>
-        <p>If you have any questions or requests regarding this Privacy Policy, please contact the developer directly:</p>
-        <p><strong>Developer:</strong> Arjun Yadav<br>
-        <strong>Email:</strong> <a href="mailto:arjunyadav.ps@gmail.com">arjunyadav.ps@gmail.com</a><br>
-        <strong>Website:</strong> <a href="https://arjunyadav.com">https://arjunyadav.com</a></p>
-
-        <footer>
-            <p>&copy; 2026 Arjun Yadav. All rights reserved. • <a href="/">Back to Developer Home</a></p>
-        </footer>
-    </div>
+<main class="container"><span class="badge">Privacy Policy</span>
+<h1>ZeroPath: Loan &amp; EMI Tracker</h1>
+<div class="meta">Developer: Arjun Yadav · Package: com.arjunyadav.zeropath<br>Last updated: 20 October 2026</div>
+<div class="highlight-box"><h3>Local tracking and connected services</h3><p>ZeroPath stores records on your device and uses online services for accounts, automatic cloud sync, backups, community features, notifications, purchases and advertising. Signing in enables cloud features. Advertising and notification services may connect even without sign-in.</p></div>
+<section><h2>1. About ZeroPath</h2><p>ZeroPath: Loan &amp; EMI Tracker (package com.arjunyadav.zeropath) is developed by Arjun Yadav. This policy explains the information handled by the app and its connected services. Contact: arjunyadav.ps@gmail.com. ZeroPath tracks information you enter; it does not connect to your bank account or initiate loan repayments.</p></section>
+<section><h2>2. Loan information and local storage</h2><p>The app stores loan names, lender names, principal amounts, interest rates, repayment schedules, balances, payment records, prepayments and notes in a local database. Preferences and app-lock settings are also stored on your device. Records of payments are entries you make, rather than transactions read from your bank. Exporting or sharing a report or backup sends the selected information to the destination you choose; protect exported files because they may contain readable financial information.</p></section>
+<section><h2>3. Google sign-in, cloud sync and backups</h2><p>When you sign in with Google, Firebase Authentication processes your Google account identifiers and authentication credentials. Your name, email address, profile photo, user ID and account activity may be stored in Firebase for your app profile. Signing in enables cloud features: loan and payment records can sync automatically to Cloud Firestore, and JSON backups can upload to Firebase Storage after changes and through scheduled background backups. These backups are held in the app&#x27;s Firebase project, not in your personal Google Drive. Signing out stops future authenticated backup and sync activity; it does not delete existing cloud records. Synced financial records are also mirrored into an administrative collection accessible to authorised app administrators for operating and supporting the service. Cloud records are not end-to-end encrypted so that only you can read them; do not treat them as a private vault inaccessible to the operator.</p></section>
+<section><h2>4. Profiles and community activity</h2><p>When you use profile or community features, the app stores profile details, followers/following, posts, comments, reactions, poll votes, story views and timestamps in Firebase. Profile features can show loan counts, outstanding balances and loan summaries to other app users. Information displayed in profiles or posted to discussions may be visible to other users. Avoid posting banking credentials or other confidential information. Contact us if you want profile information or community contributions removed.</p></section>
+<section><h2>5. Advertising and measurement</h2><p>ZeroPath includes Google AdMob advertising. Google and advertising partners may process IP addresses (which can indicate approximate location), advertising IDs and other device/app identifiers, app and ad interactions, and diagnostic information to deliver and measure ads, detect fraud and maintain service performance. Personalisation depends on consent, region and advertising settings. Some distributed versions or configured mediation integrations may also use Meta advertising services, which process device identifiers, device/network information and ad interactions. Advertising SDK processing may occur even when you do not sign in or use cloud backup. We do not send the loan amounts, repayment notes or financial backup contents to advertising SDKs as ad-targeting fields.</p></section>
+<section><h2>6. Notifications and subscriptions</h2><p>Local notifications provide repayment reminders. Firebase Cloud Messaging and OneSignal provide remote notifications and app updates. These services process push tokens, subscription/user identifiers, device and app information, language/time zone, network information and notification/session activity. Tokens and related identifiers may be linked to your Firebase profile; OneSignal&#x27;s account-linking feature can also receive your user ID and email when used. Notification permission controls whether system notifications are displayed; denying permission does not necessarily prevent push-token creation or SDK network activity. RevenueCat and Google Play process app-user identifiers, purchase history, product/transaction details and subscription entitlement information to provide and restore paid features. ZeroPath does not receive your full payment-card details from Google Play.</p></section>
+<section><h2>7. Why information is used and who receives it</h2><p>We use information to provide loan tracking, authenticate users, synchronise and restore records, operate profiles and community features, send notifications, manage purchases, display and measure advertisements, support users and prevent abuse. Information is processed by Google/Firebase, OneSignal, RevenueCat and applicable advertising partners for these purposes. Public profile and community information is shared with other app users as described above. We may also disclose information when legally required or necessary to protect the service and its users. Advertising and service providers have their own privacy practices; a claim of “zero tracking” or “no third-party data sharing” would not describe this app accurately.</p></section>
+<section><h2>8. Permissions, security and storage locations</h2><p>Notification permission supports reminders and remote messages. Biometric permission supports app unlocking through Android; the app does not receive your fingerprint or face template. Internet access supports connected features and SDKs. File selection allows you to choose a backup to import; export/share features use files you select or create. The app does not request your banking password or read SMS to obtain transaction data. Connections to Firebase and Google advertising services use encrypted transport. Local databases and exported JSON files should not be assumed to have application-level encryption. Cloud providers may process information in countries outside your own. No storage or transmission system is completely secure.</p></section>
+<section><h2>9. Your choices</h2><p>You can edit or delete loans, export your records, sign out of cloud features, and control notification permissions through Android settings. Use Android advertising settings to manage or delete your advertising ID and available ad-personalisation controls. Where an ad consent form or “Ad privacy choices” option is offered, use it to review applicable choices. Availability depends on the app version, region and configured consent messages. These choices do not automatically delete existing cloud records or data retained by service providers.</p></section>
+<section><h2>10. Retention and account/data deletion</h2><p>Local records remain until you remove them, use Settings → Wipe All Data, or clear the app&#x27;s storage. Wiping local data does not delete Firebase records, administrative mirrors, community content, cloud backups or files exported elsewhere. Uninstalling does not delete cloud data, and restoring from a backup may restore records. Cloud account information and backups are retained to provide your account and restore features until removed or a deletion request is fulfilled. To request deletion of your ZeroPath account and associated data, email arjunyadav.ps@gmail.com from the email used to sign in, with the subject “ZeroPath account and data deletion”. Specify whether you want the whole account or particular information deleted. We may verify ownership; never send passwords, OTPs or identity documents with the initial request. The request covers Firebase Authentication, profile information, synced loans/payments, administrative mirrors, Firebase Storage backups, associated community activity and linked notification identifiers. We will explain any information that must be retained for legal, security or transaction-record purposes. Purchase records held by Google Play or RevenueCat and independent advertising-provider records are subject to their own retention rules. Deleting an app account does not cancel a Google Play subscription; manage subscriptions separately in Google Play. The app currently has no dedicated “Delete Account &amp; Cloud Data” button; use this email request route.</p></section>
+<section><h2>11. Children and policy changes</h2><p>ZeroPath is intended for adults managing their own loans and finances. If you believe a child has provided personal information, contact us to request its removal. We may update this policy as features or data practices change. The date above identifies the latest revision; review this page for changes.</p></section>
+<section><h2>12. Contact and provider privacy information</h2><p>For privacy questions, access, correction or deletion requests, contact Arjun Yadav at arjunyadav.ps@gmail.com. Website: https://arjunyadav.com.</p></section>
+<ul><li><a href="https://policies.google.com/privacy">Google / Firebase</a></li><li><a href="https://firebase.google.com/support/privacy">Firebase privacy information</a></li><li><a href="https://developers.google.com/admob/android/privacy/play-data-disclosure">Google advertising data practices</a></li><li><a href="https://www.facebook.com/privacy/policy/">Meta</a></li><li><a href="https://onesignal.com/privacy_policy">OneSignal</a></li><li><a href="https://www.revenuecat.com/privacy/">RevenueCat</a></li></ul>
+<p><a href="mailto:arjunyadav.ps@gmail.com?subject=ZeroPath%20account%20and%20data%20deletion">Request ZeroPath account and data deletion by email</a></p>
+<footer>© 2026 Arjun Yadav · <a href="/">Developer home</a></footer></main>
 </body>
 </html>

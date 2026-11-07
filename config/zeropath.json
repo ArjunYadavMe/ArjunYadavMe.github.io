@@ -8,8 +8,8 @@
     "test_mode": false,
     "app_id": "ca-app-pub-4380281877506132~2863831393",
     "rewarded_ad_id": "ca-app-pub-4380281877506132/4101725591",
-    "interstitial_ad_id": "ca-app-pub-3940256099942544/1033173712",
-    "banner_ad_id": "ca-app-pub-3940256099942544/6300978111"
+    "interstitial_ad_id": "",
+    "banner_ad_id": ""
   },
   "version_control": {
     "min_version_code": 50,

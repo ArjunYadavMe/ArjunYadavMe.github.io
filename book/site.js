@@ -33,10 +33,77 @@
     });
   }
 
+  // Clarity & Analytics Event Dispatcher
+  function trackClarity(eventName, tagKey, tagValue) {
+    if (typeof window.clarity === 'function') {
+      try {
+        if (eventName) window.clarity('event', eventName);
+        if (tagKey && tagValue !== undefined) window.clarity('set', tagKey, String(tagValue));
+      } catch (err) {
+        console.debug('Clarity tracking error:', err);
+      }
+    }
+  }
+
+  // Setup full-journey user engagement tracking
+  function initJourneyTracking() {
+    trackClarity('view_book_page', 'page_type', 'book_landing');
+    trackClarity(null, 'product', "The Working Man's Code");
+
+    // Track free sample pages click
+    document.querySelectorAll('a[href*="sample-pages.pdf"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        trackClarity('sample_pages_clicked', 'interest_signal', 'sample_pdf');
+      });
+    });
+
+    // Track FAQ accordion opens
+    document.querySelectorAll('.faq details').forEach(d => {
+      d.addEventListener('toggle', () => {
+        if (d.open) {
+          const qText = d.querySelector('summary')?.textContent?.trim() || 'faq_item';
+          trackClarity('faq_opened', 'faq_question', qText.substring(0, 40));
+        }
+      });
+    });
+
+    // Track Form Field Engagement
+    const emailField = document.getElementById('cust-email');
+    if (emailField) {
+      emailField.addEventListener('focus', () => {
+        trackClarity('form_started', 'field', 'email');
+      }, { once: true });
+    }
+
+    // Track Scroll Milestones (25%, 50%, 75%, 100%)
+    const milestonesReached = { 25: false, 50: false, 75: false, 100: false };
+    let scrollTimer = null;
+    window.addEventListener('scroll', () => {
+      if (scrollTimer) return;
+      scrollTimer = setTimeout(() => {
+        scrollTimer = null;
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (totalHeight <= 0) return;
+        const scrollPct = Math.round((window.scrollY / totalHeight) * 100);
+
+        [25, 50, 75, 100].forEach(m => {
+          if (scrollPct >= m && !milestonesReached[m]) {
+            milestonesReached[m] = true;
+            trackClarity(`scroll_${m}_percent`, 'max_scroll', `${m}%`);
+          }
+        });
+      }, 250);
+    }, { passive: true });
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', updatePrices);
+    document.addEventListener('DOMContentLoaded', () => {
+      updatePrices();
+      initJourneyTracking();
+    });
   } else {
     updatePrices();
+    initJourneyTracking();
   }
 
   // Ensure Razorpay SDK is loaded
@@ -62,6 +129,7 @@
 
   // Focus and highlight payment box right of book above
   window.focusPaymentBox = function () {
+    trackClarity('cta_clicked', 'cta_location', 'focus_payment_box');
     const target = document.getElementById('payment-box');
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -129,6 +197,9 @@
       }
     }
 
+    // Fire Microsoft Clarity Checkout Initiation
+    trackClarity('initiate_checkout', 'checkout_status', 'submitting');
+
     const originalBtnText = checkoutBtn ? checkoutBtn.innerHTML : 'Get the complete pack';
     if (checkoutBtn) {
       checkoutBtn.disabled = true;
@@ -165,6 +236,8 @@
         throw new Error(data.error || 'Failed to create payment order.');
       }
 
+      trackClarity('order_created', 'order_id', data.orderId);
+
       if (checkoutBtn) {
         checkoutBtn.innerHTML = '<span class="spinner"></span> Opening Razorpay...';
       }
@@ -186,6 +259,7 @@
           color: "#d9432f"
         },
         handler: async function (paymentResp) {
+          trackClarity('payment_authorized', 'payment_id', paymentResp.razorpay_payment_id);
           if (containerBox) {
             containerBox.innerHTML = `
               <div class="processing-box" style="padding:40px 10px;">
@@ -232,6 +306,7 @@
 
             const verifyData = await verifyRes.json();
             if (verifyRes.ok && verifyData.success) {
+              trackClarity('payment_verified', 'checkout_status', 'success');
               try {
                 localStorage.setItem('gstwali_book_order', JSON.stringify({
                   orderId: paymentResp.razorpay_order_id,
@@ -250,6 +325,7 @@
               throw new Error(verifyData.error || 'Payment verification failed.');
             }
           } catch (vErr) {
+            trackClarity('verification_error', 'error_msg', vErr.message);
             alert(`Payment received, but auto-verification encountered an issue: ${vErr.message}\n\nPlease email ${cfg.supportEmail || 'arjunyadav.ps@gmail.com'} with Payment ID: ${paymentResp.razorpay_payment_id}`);
             if (containerBox) {
               containerBox.innerHTML = `
@@ -264,6 +340,7 @@
         },
         modal: {
           ondismiss: function () {
+            trackClarity('checkout_abandoned', 'checkout_status', 'modal_dismissed_without_paying');
             if (checkoutBtn) {
               checkoutBtn.disabled = false;
               checkoutBtn.innerHTML = originalBtnText;
@@ -272,10 +349,12 @@
         }
       };
 
+      trackClarity('payment_gateway_opened', 'gateway', 'razorpay');
       const rzp = new window.Razorpay(rzpOptions);
       rzp.open();
 
     } catch (err) {
+      trackClarity('checkout_error', 'error_msg', err.message);
       alert('Could not start checkout: ' + err.message);
       if (checkoutBtn) {
         checkoutBtn.disabled = false;
