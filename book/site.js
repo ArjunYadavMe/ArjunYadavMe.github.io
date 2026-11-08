@@ -31,6 +31,12 @@
         maximumFractionDigits: 0
       }).format(price);
     });
+    // Format numeric-only price (when currency symbol span is separate)
+    document.querySelectorAll('[data-price-num]').forEach(el => {
+      el.textContent = new Intl.NumberFormat('en-IN', {
+        maximumFractionDigits: 0
+      }).format(price);
+    });
   }
 
   // Clarity & Analytics Event Dispatcher
@@ -128,17 +134,17 @@
   }
 
   // Focus and highlight payment box right of book above
-  window.focusPaymentBox = function () {
-    trackClarity('cta_clicked', 'cta_location', 'focus_payment_box');
+  window.focusPaymentBox = function (source = 'button') {
+    trackClarity('cta_clicked', 'cta_location', source);
     const target = document.getElementById('payment-box');
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'center' });
       setTimeout(() => {
-        const nameInput = document.getElementById('cust-name');
-        if (nameInput) {
-          nameInput.focus();
-          nameInput.classList.add('pulse-focus');
-          setTimeout(() => nameInput.classList.remove('pulse-focus'), 1500);
+        const emailInput = document.getElementById('cust-email');
+        if (emailInput) {
+          emailInput.focus();
+          emailInput.classList.add('pulse-focus');
+          setTimeout(() => emailInput.classList.remove('pulse-focus'), 1500);
         }
       }, 350);
     }

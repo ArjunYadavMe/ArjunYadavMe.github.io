@@ -17,10 +17,10 @@
   <meta property="og:image" content="https://arjunyadav.com/book/assets/og.png">
   <meta property="og:url" content="https://arjunyadav.com/book/">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="/book/styles.css?v=6">
-  <script src="/book/config.js?v=6"></script>
+  <link rel="stylesheet" href="/book/styles.css?v=7">
+  <script src="/book/config.js?v=7"></script>
   <script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
-  <script src="/book/site.js?v=6"></script>
+  <script src="/book/site.js?v=7"></script>
 
   <!-- Meta Pixel Code -->
   <script>
@@ -62,7 +62,7 @@
     <a href="#look-inside">Sample Pages</a>
     <a href="#author">Why I Wrote This</a>
     <a href="#questions">FAQ</a>
-    <button type="button" class="nav-cta" onclick="focusPaymentBox()">Get the Complete Pack · <span data-price>₹299</span></button>
+    <button type="button" class="nav-cta" onclick="focusPaymentBox('nav')"><span class="nav-cta-text-desktop">Get the Complete Pack · </span><span class="nav-cta-text-mobile">Get Pack · </span><span data-price>₹299</span></button>
   </nav>
 </header>
 
@@ -83,10 +83,10 @@
         </div>
 
         <div class="book-row">
-          <div class="book-stage">
+          <a href="/book/sample-pages.pdf" target="_blank" class="book-stage" title="Tap to read 10 free sample pages">
             <img src="/book/assets/cover.png" width="1050" height="1500" alt="The Working Man’s Code book cover" fetchpriority="high">
-            <span class="stage-note">THE EBOOK & PRACTICE PACK</span>
-          </div>
+            <span class="stage-note">📖 TAP TO PREVIEW SAMPLE</span>
+          </a>
 
           <div class="book-highlights">
             <div class="hl-item">
@@ -115,7 +115,7 @@
           <div class="price-row">
             <div class="price-main">
               <span class="price-currency">₹</span>
-              <span class="price-number" data-price>299</span>
+              <span class="price-number" data-price-num>299</span>
             </div>
             <div class="price-meta">
               <span class="price-type">One-Time Payment</span>
@@ -358,5 +358,19 @@
     <a href="/book/terms.html">Terms</a>
   </nav>
 </footer>
+
+<!-- Sticky Bottom Conversion Bar for Mobile (92% of visitors) -->
+<aside class="mobile-sticky-bar" id="mobile-sticky-bar" aria-label="Quick checkout bar">
+  <div class="msb-content">
+    <div class="msb-info">
+      <span class="msb-title">The Working Man’s Code</span>
+      <span class="msb-price"><span data-price>₹299</span> <span class="msb-badge">⚡ Instant PDF</span></span>
+    </div>
+    <button type="button" class="msb-btn" onclick="focusPaymentBox('sticky_mobile_bar')">
+      Get Pack · <span data-price>₹299</span> →
+    </button>
+  </div>
+</aside>
+
 </body>
 </html>
