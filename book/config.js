@@ -2,7 +2,7 @@ window.BOOK_CONFIG = {
   price: 299,
   currency: 'INR',
   productName: "The Working Man's Code",
-  productDescription: "84-Page Ebook + 8 Reusable Worksheets + Quickstart Guide",
+  productDescription: "Complete 4-Part Daily Discipline Kit (Manual + Habit Protocol + 8 Worksheets + Sprint Guide)",
   supportEmail: 'arjunyadav.ps@gmail.com',
   razorpayKeyId: 'rzp_live_SQONBdALpkNyow',
   metaPixelId: '1001514732433335',
