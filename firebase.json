@@ -13,6 +13,86 @@
     "cleanUrls": true,
     "rewrites": [
       {
+        "source": "/support",
+        "destination": "/support/index.html"
+      },
+      {
+        "source": "/support/",
+        "destination": "/support/index.html"
+      },
+      {
+        "source": "/contact",
+        "destination": "/support/index.html"
+      },
+      {
+        "source": "/contact/",
+        "destination": "/support/index.html"
+      },
+      {
+        "source": "/terms-of-service",
+        "destination": "/terms-of-service/index.html"
+      },
+      {
+        "source": "/terms-of-service/",
+        "destination": "/terms-of-service/index.html"
+      },
+      {
+        "source": "/terms",
+        "destination": "/terms-of-service/index.html"
+      },
+      {
+        "source": "/terms/",
+        "destination": "/terms-of-service/index.html"
+      },
+      {
+        "source": "/privacy-policy",
+        "destination": "/privacy-policy/index.html"
+      },
+      {
+        "source": "/privacy-policy/",
+        "destination": "/privacy-policy/index.html"
+      },
+      {
+        "source": "/cancellation",
+        "destination": "/cancellation/index.html"
+      },
+      {
+        "source": "/cancellation/",
+        "destination": "/cancellation/index.html"
+      },
+      {
+        "source": "/cancellation-refund",
+        "destination": "/cancellation/index.html"
+      },
+      {
+        "source": "/cancellation-refund/",
+        "destination": "/cancellation/index.html"
+      },
+      {
+        "source": "/refund-policy",
+        "destination": "/cancellation/index.html"
+      },
+      {
+        "source": "/refund-policy/",
+        "destination": "/cancellation/index.html"
+      },
+      {
+        "source": "/delivery",
+        "destination": "/delivery/index.html"
+      },
+      {
+        "source": "/delivery/",
+        "destination": "/delivery/index.html"
+      },
+      {
+        "source": "/shipping-policy",
+        "destination": "/delivery/index.html"
+      },
+      {
+        "source": "/shipping-policy/",
+        "destination": "/delivery/index.html"
+      },
+      {
         "source": "/appconfig",
         "destination": "/appconfig/index.html"
       },
