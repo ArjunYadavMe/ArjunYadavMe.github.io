@@ -1,0 +1,27 @@
+{
+  "app_id": "com.video.clipping",
+  "app_name": "Clipping: AI Video & Image Clipper",
+  "version": 1,
+  "last_updated": "2026-11-21",
+  "ads": {
+    "enabled": true,
+    "test_mode": false,
+    "app_id": "ca-app-pub-4380281877506132~3347511713",
+    "rewarded_id": "ca-app-pub-4380281877506132/CLIPPING_RW1",
+    "interstitial_id": "ca-app-pub-4380281877506132/CLIPPING_INT1",
+    "banner_id": "ca-app-pub-4380281877506132/CLIPPING_BAN1"
+  },
+  "version_control": {
+    "min_version_code": 1,
+    "latest_version_code": 1,
+    "force_update": false,
+    "update_title": "New Features in Clipping",
+    "update_message": "A new version of Clipping is available with enhanced AI highlight detection and smart reframing.",
+    "play_store_url": "https://play.google.com/store/apps/details?id=com.video.clipping"
+  },
+  "notice": {
+    "enabled": false,
+    "title": "",
+    "message": ""
+  }
+}
